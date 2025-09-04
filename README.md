@@ -8,7 +8,7 @@ Dette er en produkt-team quiz fra Team POP i NRK skrevet i svelte. Del teamet di
 * Svar på spørsmål ved å trykke på svaret.
 * Svarer du feil får du minus, og motstanderen får sjanse til å svare på spørsmålet
 * Le av rare AI spørsmål. Dette er vibe-kodet av Kjartan, og alle 708 spørsmål er AI generert. Men det er en del av moroa.
-* Fortsett fra forrige gang ved å notere ned kode-ord
+* Fortsett fra forrige gang ved å notere ned kode-ord. Hvem vinner denne OKR perioden? Hvem er det beste laget i denne tight loose tight sesjonen?
 * Profit!
 
 
