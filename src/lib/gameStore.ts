@@ -270,6 +270,9 @@ function createGameStore() {
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
           lastCorrectAnswer: correctAnswerToStore
+        }
+        )
+        )
 
         // Trigger confetti animation
         if (!isPassed) {
@@ -324,8 +327,10 @@ function createGameStore() {
         isQuestionFading: false
         isQuestionFading: false,
         lastCorrectAnswer: null
-    }
-  };
+          }
+      )
+      };
+  }
   lastCorrectAnswer: string | null;
 }
 
