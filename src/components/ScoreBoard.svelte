@@ -1,13 +1,37 @@
 <script lang="ts">
   import { Trophy, Users } from 'lucide-svelte';
+  import { CheckCircle, XCircle } from 'lucide-svelte';
   import type { Session } from '../types/quiz';
 
   export let session: Session;
   export let currentTurn: number;
   export let lastCorrectAnswer: string | null = null;
+  export let lastAnswer: {
+    team: number;
+    correct: boolean;
+    points: number;
+  } | null = null;
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-4 mb-4">  
+  {#if lastAnswer}
+    <div class="mb-3 p-3 rounded-lg {lastAnswer.correct 
+      ? 'bg-green-100 border border-green-300' 
+      : 'bg-red-100 border border-red-300'}">
+      <div class="flex items-center gap-2">
+        {#if lastAnswer.correct}
+          <CheckCircle class="h-5 w-5 text-green-600" />
+        {:else}
+          <XCircle class="h-5 w-5 text-red-600" />
+        {/if}
+        <p class="font-medium">
+          {lastAnswer.team === 1 ? session.team1_name : session.team2_name}: 
+          {lastAnswer.correct ? 'Riktig!' : 'Feil!'} ({lastAnswer.points > 0 ? '+' : ''}{lastAnswer.points} poeng)
+        </p>
+      </div>
+    </div>
+  {/if}
+
   <div class="grid grid-cols-2 gap-4">
     <div class="p-4 rounded-xl border-2 transition-all {currentTurn === 1
       ? 'border-brand-dark bg-brand-light shadow-md'
@@ -57,7 +81,8 @@
       <p class="text-2xl font-bold text-accent-dark">{session.team2_score} poeng</p>
     </div>
   </div>
-    {#if lastCorrectAnswer}
+
+  {#if lastCorrectAnswer}
     <div class="mb-3 p-3 rounded-lg bg-blue-50 border border-blue-200">
       <p class="text-sm text-blue-700">
         <span class="font-medium">Svar på forrige spørsmål:</span> {lastCorrectAnswer}

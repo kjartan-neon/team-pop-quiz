@@ -10,11 +10,6 @@
   export let onAnswer: (answer: string) => void;
   export let onPass: () => void;
   export let onChooseNewQuestion: (() => void) | undefined = undefined;
-  export let lastAnswer: {
-    team: number;
-    correct: boolean;
-    points: number;
-  } | null = null;
   export let showCorrectAnswer: string | null = null;
   export let isQuestionFading: boolean = false;
 
@@ -44,24 +39,6 @@
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-500 {isQuestionFading ? 'fade-out' : 'fade-in'}">
-  {#if lastAnswer}
-    <div class="mb-6 p-4 rounded-lg {lastAnswer.correct 
-      ? 'bg-green-100 border border-green-300' 
-      : 'bg-red-100 border border-red-300'}">
-      <div class="flex items-center gap-2">
-        {#if lastAnswer.correct}
-          <CheckCircle class="h-5 w-5 text-green-600" />
-        {:else}
-          <XCircle class="h-5 w-5 text-red-600" />
-        {/if}
-        <p class="font-medium">
-          {lastAnswer.team === 1 ? team1Name : team2Name}: 
-          {lastAnswer.correct ? 'Riktig!' : 'Feil!'} ({lastAnswer.points > 0 ? '+' : ''}{lastAnswer.points} poeng)
-        </p>
-      </div>
-    </div>
-  {/if}
-
   {#if showCorrectAnswer}
     <div class="mb-6 p-4 rounded-lg bg-blue-50 border border-blue-600">
       <div class="flex items-center gap-2">

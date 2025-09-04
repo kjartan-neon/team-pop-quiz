@@ -55,6 +55,7 @@
         session={gameState.session}
         currentTurn={currentTeam}
         lastCorrectAnswer={gameState.lastCorrectAnswer}
+        lastAnswer={gameState.lastAnswer}
       />
       
       <QuestionCard
@@ -63,7 +64,6 @@
         team1Name={gameState.session.team1_name}
         team2Name={gameState.session.team2_name}
         hasDoubleOption={gameState.team2HasDoubleOption}
-        lastAnswer={gameState.lastAnswer}
         showCorrectAnswer={gameState.showCorrectAnswer}
         isQuestionFading={gameState.isQuestionFading}
         onAnswer={handleAnswer}
