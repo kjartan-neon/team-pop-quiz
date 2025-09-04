@@ -91,8 +91,6 @@
         </span>
       </div>
     </div>
-      </span>
-    </div>
     
     <h3 class="text-2xl font-bold text-gray-900 leading-relaxed mb-6">
       {question.question_text}
