@@ -10,7 +10,8 @@ function createGameStore() {
     isLoading: false,
     gamePhase: 'setup',
     team2HasDoubleOption: false,
-    lastAnswer: null
+    lastAnswer: null,
+    showCorrectAnswer: null
   });
 
   return {
@@ -36,7 +37,8 @@ function createGameStore() {
           ...state,
           session,
           gamePhase: 'team1_turn',
-          isLoading: false
+          isLoading: false,
+          showCorrectAnswer: null
         }));
 
         await this.loadNextQuestion();
@@ -62,7 +64,8 @@ function createGameStore() {
           ...state,
           session,
           gamePhase: session.current_turn === 1 ? 'team1_turn' : 'team2_turn',
-          isLoading: false
+          isLoading: false,
+          showCorrectAnswer: null
         }));
 
         await this.loadNextQuestion();
@@ -98,7 +101,8 @@ function createGameStore() {
           update(state => ({
             ...state,
             currentQuestion: randomQuestion,
-            lastAnswer: null
+            lastAnswer: null,
+            showCorrectAnswer: null
           }));
         }
       } catch (error) {
@@ -181,12 +185,16 @@ function createGameStore() {
             points_awarded: pointsAwarded
           });
 
+        // Check if both teams answered wrong (team 2 just answered wrong and has double option)
+        const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && !isPassed && currentState!.team2HasDoubleOption;
+
         update(state => ({
           ...state,
           session: updatedSession,
           lastAnswer: { team: currentTeam, correct: isCorrect, points: pointsAwarded },
           gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
-          team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed
+          team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed,
+          showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null
         }));
 
         // Trigger confetti animation
@@ -197,7 +205,11 @@ function createGameStore() {
         if (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) {
           setTimeout(() => {
             this.loadNextQuestion();
-            update(state => ({ ...state, team2HasDoubleOption: false }));
+            update(state => ({ 
+              ...state, 
+              team2HasDoubleOption: false,
+              showCorrectAnswer: null 
+            }));
           }, 3000);
         }
       } catch (error) {
@@ -207,7 +219,11 @@ function createGameStore() {
 
     async chooseNewQuestion() {
       await this.loadNextQuestion();
-      update(state => ({ ...state, team2HasDoubleOption: false }));
+      update(state => ({ 
+        ...state, 
+        team2HasDoubleOption: false,
+        showCorrectAnswer: null 
+      }));
     },
 
     resetToSetup() {
@@ -217,7 +233,8 @@ function createGameStore() {
         isLoading: false,
         gamePhase: 'setup',
         team2HasDoubleOption: false,
-        lastAnswer: null
+        lastAnswer: null,
+        showCorrectAnswer: null
       });
     }
   };

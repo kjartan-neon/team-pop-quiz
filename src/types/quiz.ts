@@ -42,4 +42,5 @@ export interface GameState {
     correct: boolean;
     points: number;
   } | null;
+  showCorrectAnswer: string | null;
 }

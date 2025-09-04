@@ -15,6 +15,7 @@
     correct: boolean;
     points: number;
   } | null = null;
+  export let showCorrectAnswer: string | null = null;
 
   let selectedAnswer = '';
   let numberInput = '';
@@ -55,6 +56,17 @@
         <p class="font-medium">
           {lastAnswer.team === 1 ? team1Name : team2Name}: 
           {lastAnswer.correct ? 'Riktig!' : 'Feil!'} ({lastAnswer.points > 0 ? '+' : ''}{lastAnswer.points} poeng)
+        </p>
+      </div>
+    </div>
+  {/if}
+
+  {#if showCorrectAnswer}
+    <div class="mb-6 p-4 rounded-lg bg-blue-50 border border-blue-600">
+      <div class="flex items-center gap-2">
+        <CheckCircle class="h-5 w-5 text-blue-600" />
+        <p class="font-medium text-blue-600">
+          Riktig svar var: <span class="font-bold">{showCorrectAnswer}</span>
         </p>
       </div>
     </div>

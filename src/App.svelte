@@ -61,6 +61,7 @@
         team2Name={gameState.session.team2_name}
         hasDoubleOption={gameState.team2HasDoubleOption}
         lastAnswer={gameState.lastAnswer}
+        showCorrectAnswer={gameState.showCorrectAnswer}
         onAnswer={handleAnswer}
         onPass={handlePass}
         onChooseNewQuestion={gameState.team2HasDoubleOption ? handleChooseNewQuestion : undefined}
