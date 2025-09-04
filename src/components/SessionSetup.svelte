@@ -31,7 +31,7 @@
   <div class="w-full max-w-2xl">
     <!-- Header outside the card -->
     <div class="text-center mb-8">
-      <div class="bg-brand-dark rounded-xl p-6 mb-4">
+      <div class="bg-brand-dark rounded-s p-6 mb-4">
         <div class="flex items-center justify-between gap-4">
           <!-- Logo -->
           <div class="flex-shrink-0 w-24 h-12 flex items-center justify-center">
@@ -63,11 +63,11 @@
     </div>
 
     <!-- Session setup card -->
-    <div class="bg-white rounded-2xl shadow-2xl p-8">
-    <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+    <div class="bg-white rounded-s shadow-2xl p-8">
+    <div class="flex mb-6 bg-gray-100 rounded-s p-1">
       <button
         on:click={() => mode = 'create'}
-        class="flex-1 py-3 px-4 rounded-md font-medium transition-all {mode === 'create'
+        class="flex-1 py-3 px-4 rounded-s font-medium transition-all {mode === 'create'
           ? 'bg-brand-dark text-white shadow-md'
           : 'text-gray-600 hover:text-brand-dark'}"
       >
@@ -75,7 +75,7 @@
       </button>
       <button
         on:click={() => mode = 'load'}
-        class="flex-1 py-3 px-4 rounded-md font-medium transition-all {mode === 'load'
+        class="flex-1 py-3 px-4 rounded-s font-medium transition-all {mode === 'load'
           ? 'bg-brand-dark text-white shadow-md'
           : 'text-gray-600 hover:text-brand-dark'}"
       >
@@ -93,12 +93,12 @@
             <input
               type="text"
               bind:value={wordCombination}
-              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent text-lg font-mono"
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-s focus:ring-2 focus:border-transparent text-lg font-mono"
               placeholder="f.eks. gul bjørn"
             />
             <button
               on:click={generateNew}
-              class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+              class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
             >
               Nytt
             </button>
@@ -113,7 +113,7 @@
             <input
               type="text"
               bind:value={team1Name}
-              class="w-full px-4 py-3 border-2 border-brand-light rounded-lg focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
+              class="w-full px-4 py-3 border-2 border-brand-light rounded-s focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
               placeholder="Navn på lag 1"
             />
           </div>
@@ -124,7 +124,7 @@
             <input
               type="text"
               bind:value={team2Name}
-              class="w-full px-4 py-3 border-2 border-accent-light rounded-lg focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
+              class="w-full px-4 py-3 border-2 border-accent-light rounded-s focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
               placeholder="Navn på lag 2"
             />
           </div>
@@ -133,10 +133,10 @@
         <button
           on:click={handleCreateSession}
           disabled={isLoading || !wordCombination || !team1Name || !team2Name}
-          class="w-full bg-brand-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-lg font-medium text-lg transition-all flex items-center justify-center gap-2"
+          class="w-full bg-brand-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-s font-medium text-lg transition-all flex items-center justify-center gap-2"
         >
           {#if isLoading}
-            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-s"></div>
           {:else}
             <Play class="h-5 w-5" />
             Start Quiz
@@ -152,7 +152,7 @@
           <input
             type="text"
             bind:value={loadWordCombination}
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent text-lg font-mono"
+            class="w-full px-4 py-3 border border-gray-300 rounded-s focus:ring-2 focus:border-transparent text-lg font-mono"
             placeholder="f.eks. gul bjørn"
           />
         </div>
@@ -160,10 +160,10 @@
         <button
           on:click={handleLoadSession}
           disabled={isLoading || !loadWordCombination}
-          class="w-full bg-accent-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-lg font-medium text-lg transition-all flex items-center justify-center gap-2"
+          class="w-full bg-accent-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-s font-medium text-lg transition-all flex items-center justify-center gap-2"
         >
           {#if isLoading}
-            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-s"></div>
           {:else}
             <Search class="h-5 w-5" />
             Last inn spill
