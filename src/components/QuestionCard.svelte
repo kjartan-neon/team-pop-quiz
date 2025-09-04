@@ -68,7 +68,7 @@
     </div>
     {#if hasDoubleOption && currentTeam === 2}
       <p class="text-sm text-yellow-600 font-medium mt-2">
-        Dobbel poeng for samme spørsmål!
+        Dobbel poeng for samme spørsmål! ({question.difficulty === 'easy' ? '50p' : question.difficulty === 'medium' ? '100p' : '200p'})
       </p>
     {/if}
   </div>
@@ -78,8 +78,19 @@
       <span class="text-sm font-medium text-gray-500 uppercase tracking-wide">
         {question.category}
       </span>
-      <span class="text-sm text-gray-400">
-        {question.question_type === 'number' ? 'Tallfelt' : 'Flervalg'}
+      <div class="flex items-center gap-2">
+        <span class="text-sm px-2 py-1 rounded-full font-medium {question.difficulty === 'easy' 
+          ? 'bg-green-100 text-green-600' 
+          : question.difficulty === 'medium' 
+          ? 'bg-yellow-100 text-yellow-600' 
+          : 'bg-red-100 text-red-600'}">
+          {question.difficulty === 'easy' ? '25p' : question.difficulty === 'medium' ? '50p' : '100p'}
+        </span>
+        <span class="text-sm text-gray-400">
+          {question.question_type === 'number' ? 'Tallfelt' : 'Flervalg'}
+        </span>
+      </div>
+    </div>
       </span>
     </div>
     
@@ -140,7 +151,7 @@
         on:click={onChooseNewQuestion}
         class="w-full bg-gray-700 hover:bg-gray-800 text-white py-3 px-6 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
       >
-        Nytt spørsmål (1 poeng)
+        Nytt spørsmål (25p)
       </button>
     {/if}
   </div>

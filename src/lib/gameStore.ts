@@ -117,9 +117,25 @@ function createGameStore() {
         }
 
         if (isCorrect) {
-          pointsAwarded = currentTeam === 2 && currentState!.team2HasDoubleOption ? 2 : 1;
+          // Base points based on difficulty
+          let basePoints = 25; // easy
+          if (currentState!.currentQuestion.difficulty === 'medium') {
+            basePoints = 50;
+          } else if (currentState!.currentQuestion.difficulty === 'hard') {
+            basePoints = 100;
+          }
+          
+          // Double points for team 2 if they have the double option
+          pointsAwarded = currentTeam === 2 && currentState!.team2HasDoubleOption ? basePoints * 2 : basePoints;
         } else {
-          pointsAwarded = -1;
+          // Negative points based on difficulty (half of positive points)
+          let basePenalty = -12; // easy (-12)
+          if (currentState!.currentQuestion.difficulty === 'medium') {
+            basePenalty = -25;
+          } else if (currentState!.currentQuestion.difficulty === 'hard') {
+            basePenalty = -50;
+          }
+          pointsAwarded = basePenalty;
         }
       }
 

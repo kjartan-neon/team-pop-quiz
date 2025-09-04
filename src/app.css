@@ -22,6 +22,7 @@
   --red-600: #dc2626;
   --yellow-500: #eab308;
   --yellow-600: #ca8a04;
+  --yellow-100: #fef3c7;
   --blue-50: #eff6ff;
   --blue-600: #2563eb;
   --orange-50: #fff7ed;
@@ -270,6 +271,10 @@ body {
 
 .bg-red-100 {
   background-color: var(--red-100);
+}
+
+.bg-yellow-100 {
+  background-color: var(--yellow-100);
 }
 
 .text-white {
