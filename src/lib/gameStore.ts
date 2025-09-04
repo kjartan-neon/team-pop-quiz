@@ -11,7 +11,8 @@ function createGameStore() {
     gamePhase: 'setup',
     team2HasDoubleOption: false,
     lastAnswer: null,
-    showCorrectAnswer: null
+    showCorrectAnswer: null,
+    loadError: null
   });
 
   return {
@@ -38,7 +39,8 @@ function createGameStore() {
           session,
           gamePhase: 'team1_turn',
           isLoading: false,
-          showCorrectAnswer: null
+          showCorrectAnswer: null,
+          loadError: null
         }));
 
         await this.loadNextQuestion();
@@ -58,20 +60,36 @@ function createGameStore() {
           .eq('word_combination', wordCombination)
           .single();
 
-        if (error) throw error;
+        if (error) {
+          if (error.code === 'PGRST116') {
+            // No rows found
+            update(state => ({
+              ...state,
+              isLoading: false,
+              loadError: 'Ingen sesjon funnet med dette ordet. Sjekk stavemåten.'
+            }));
+            return;
+          }
+          throw error;
+        }
 
         update(state => ({
           ...state,
           session,
           gamePhase: session.current_turn === 1 ? 'team1_turn' : 'team2_turn',
           isLoading: false,
-          showCorrectAnswer: null
+          showCorrectAnswer: null,
+          loadError: null
         }));
 
         await this.loadNextQuestion();
       } catch (error) {
         console.error('Error loading session:', error);
-        update(state => ({ ...state, isLoading: false }));
+        update(state => ({ 
+          ...state, 
+          isLoading: false,
+          loadError: 'Det oppstod en feil ved lasting av sesjonen. Prøv igjen.'
+        }));
       }
     },
 
@@ -246,7 +264,8 @@ function createGameStore() {
         gamePhase: 'setup',
         team2HasDoubleOption: false,
         lastAnswer: null,
-        showCorrectAnswer: null
+        showCorrectAnswer: null,
+        loadError: null
       });
     }
   };

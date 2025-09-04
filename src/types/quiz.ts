@@ -43,4 +43,5 @@ export interface GameState {
     points: number;
   } | null;
   showCorrectAnswer: string | null;
+  loadError: string | null;
 }

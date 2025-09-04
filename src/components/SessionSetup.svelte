@@ -9,9 +9,11 @@
   let team2Name = 'Lag 2';
   let loadWordCombination = '';
   let isLoading = false;
+  let loadError = null;
 
   gameStore.subscribe(state => {
     isLoading = state.isLoading;
+    loadError = state.loadError;
   });
 
   function handleCreateSession() {
@@ -155,6 +157,9 @@
             class="w-full px-4 py-3 border border-gray-300 rounded-s focus:ring-2 focus:border-transparent text-lg font-mono"
             placeholder="f.eks. gul bjørn"
           />
+          {#if loadError}
+            <p class="mt-2 text-sm text-red-600">{loadError}</p>
+          {/if}
         </div>
 
         <button
