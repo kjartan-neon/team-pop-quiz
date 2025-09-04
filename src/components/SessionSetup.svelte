@@ -130,6 +130,7 @@
               placeholder="Navn på lag 2"
             />
           </div>
+          <p>Dette kan også være fornavn på de på laget</p>
         </div>
 
         <button
