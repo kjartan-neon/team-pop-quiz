@@ -32,9 +32,9 @@
     <!-- Header outside the card -->
     <div class="text-center mb-8">
       <div class="bg-brand-dark rounded-xl p-6 mb-4">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center justify-between gap-4">
           <!-- Logo -->
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 w-24 h-12 flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="99.866" height="36.914" viewBox="0 0 99.866 36.914" class="h-12 w-auto">
               <g fill="#fff">
                 <path d="M19.045,4.281A14.764,14.764,0,1,0,33.809,19.045,14.764,14.764,0,0,0,19.045,4.281Zm0-3.281A18.045,18.045,0,1,0,37.09,19.045,18.045,18.045,0,0,0,19.045,1Zm0,27.888A9.843,9.843,0,0,1,9.2,19.045H28.888A9.843,9.843,0,0,1,19.045,28.888Zm5.684-6.562H13.361a6.564,6.564,0,0,0,11.368,0Z" transform="translate(384.865 654.181)"/>
@@ -49,7 +49,7 @@
           </div>
           
           <!-- Text -->
-          <div class="flex-1">
+          <div class="flex-1 text-center">
             <h1 class="text-2xl font-bold text-white mb-1">
               🎯 POP-quiz
             </h1>
