@@ -35,7 +35,7 @@
       <h1 class="text-4xl font-bold text-gray-900 mb-2">POP-quiz</h1>
       <p class="text-xl text-gray-600 mb-2">Presentert av NRKs beste team</p>
       <p class="text-lg font-semibold text-brand-dark">✨ Team POP ✨</p>
-      <p class="text-sm text-gray-500 mt-1">Den ultimate quiz-opplevelsen</p>
+      <p class="text-sm text-gray-500 mt-1">Den ultimate produkt-team quiz-opplevelsen. (neida, joda)</p>
     </div>
 
     <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
