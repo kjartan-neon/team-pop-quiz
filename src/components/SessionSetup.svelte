@@ -132,7 +132,7 @@
           </div>
           
         </div>
-      <p class="block text-sm font-medium text-gray-700 mb-2">Dette kan også være fornavnene til medlemmene på laget</p>
+      <p class="block text-sm font-medium text-gray-700 mb-2">Tips: Dette kan også være fornavnene til medlemmene på laget</p>
         <button
           on:click={handleCreateSession}
           disabled={isLoading || !wordCombination || !team1Name || !team2Name}
