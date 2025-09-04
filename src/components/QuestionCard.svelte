@@ -23,7 +23,7 @@
   $: currentTeamName = currentTeam === 1 ? team1Name : team2Name;
 
   function handleSubmit() {
-    const answer = question.question_type === 'multiple_choice' ? selectedAnswer : numberInput;
+    const answer = question.question_type === 'multiple_choice' ? selectedAnswer : numberInput.toString();
     if (answer) {
       onAnswer(answer);
       selectedAnswer = '';
@@ -128,7 +128,9 @@
     {:else}
       <div>
         <input
-          type="number"
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]*"
           bind:value={numberInput}
           class="w-full px-4 py-4 text-xl border-2 rounded-lg focus:border-transparent"
           style="border-color: {currentTeam === 1 ? 'var(--brand-light)' : 'var(--accent-light)'};"
@@ -144,7 +146,7 @@
   <div class="space-y-3">
     <button
       on:click={handleSubmit}
-      disabled={!selectedAnswer && !numberInput}
+      disabled={!selectedAnswer && (!numberInput || numberInput.trim() === '')}
       class="w-full disabled:opacity-50 text-white py-4 px-6 rounded-lg font-medium text-lg transition-all flex items-center justify-center gap-2"
       style="background-color: {currentTeam === 1 ? 'var(--brand-dark)' : 'var(--accent-dark)'}"
     >
