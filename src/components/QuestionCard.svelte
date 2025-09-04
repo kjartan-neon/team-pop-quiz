@@ -128,7 +128,7 @@
     {#if onFlagQuestion}
       <button
         on:click={onFlagQuestion}
-        class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
+        class="w-full bg-red-600 hover:bg-red-700 text-black py-3 px-6 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
       >
         <Flag class="h-4 w-4" />
         Rapporter feil i spørsmål
