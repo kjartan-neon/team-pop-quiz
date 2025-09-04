@@ -60,7 +60,7 @@
     {#if lastCorrectAnswer}
     <div class="mb-3 p-3 rounded-lg bg-blue-50 border border-blue-200">
       <p class="text-sm text-blue-700">
-        <span class="font-medium">Forrige spørsmål:</span> {lastCorrectAnswer}
+        <span class="font-medium">Svar på forrige spørsmål:</span> {lastCorrectAnswer}
       </p>
     </div>
   {/if}
