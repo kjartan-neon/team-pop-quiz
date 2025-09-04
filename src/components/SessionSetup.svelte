@@ -86,13 +86,13 @@
           <!-- Text content on the right -->
           <div class="flex-1 text-left">
             <h1 class="text-xl font-bold text-white mb-1 animate-bounce-subtle">
-              POP-quiz
+              🎯 POP-quiz
             </h1>
             <p class="text-sm text-white mb-1 font-medium animate-fade-in">
-              Presentert av NRKs beste team
+              📺 Presentert av NRKs beste team
             </p>
             <p class="text-lg font-bold text-yellow-300 animate-glow">
-              Team POP
+              ⭐ Team POP ⭐
             </p>
           </div>
         </div>
