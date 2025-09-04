@@ -11,7 +11,8 @@
     gamePhase: 'setup',
     team2HasDoubleOption: false,
     lastAnswer: null,
-    isQuestionFading: false
+    isQuestionFading: false,
+    lastCorrectAnswer: null
   };
 
   gameStore.subscribe(state => {
@@ -53,6 +54,7 @@
       <ScoreBoard 
         session={gameState.session}
         currentTurn={currentTeam}
+        lastCorrectAnswer={gameState.lastCorrectAnswer}
       />
       
       <QuestionCard
@@ -83,6 +85,12 @@
           >
             Tilbake til konfigurasjon
           </button>
+        </div>
+        
+        <div class="mt-4">
+          <p class="text-xs text-gray-600">
+            Sesjonsord: <span class="font-mono font-medium">{gameState.session.word_combination}</span>
+          </p>
         </div>
       </div>
     </div>

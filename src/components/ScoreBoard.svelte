@@ -4,9 +4,18 @@
 
   export let session: Session;
   export let currentTurn: number;
+  export let lastCorrectAnswer: string | null = null;
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-4 mb-4">
+  {#if lastCorrectAnswer}
+    <div class="mb-3 p-3 rounded-lg bg-blue-50 border border-blue-200">
+      <p class="text-sm text-blue-700">
+        <span class="font-medium">Forrige spørsmål:</span> {lastCorrectAnswer}
+      </p>
+    </div>
+  {/if}
+  
   
   <div class="grid grid-cols-2 gap-4">
     <div class="p-4 rounded-xl border-2 transition-all {currentTurn === 1
@@ -56,11 +65,5 @@
       </div>
       <p class="text-2xl font-bold text-accent-dark">{session.team2_score} poeng</p>
     </div>
-  </div>
-
-  <div class="mt-2 text-center">
-    <p class="text-xs text-gray-500">
-      Sesjonsord: <span class="font-mono font-medium">{session.word_combination}</span>
-    </p>
   </div>
 </div>

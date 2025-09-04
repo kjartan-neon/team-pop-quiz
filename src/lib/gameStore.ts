@@ -55,7 +55,8 @@ function createGameStore() {
           isLoading: false,
           showCorrectAnswer: null,
           loadError: null,
-          isQuestionFading: false
+          isQuestionFading: false,
+          lastCorrectAnswer: null
         }));
 
         await this.loadNextQuestion();
@@ -111,7 +112,8 @@ function createGameStore() {
           isLoading: false,
           showCorrectAnswer: null,
           loadError: null,
-          isQuestionFading: false
+          isQuestionFading: false,
+          lastCorrectAnswer: null
         }));
 
         await this.loadNextQuestion();
@@ -255,6 +257,10 @@ function createGameStore() {
         // Check if both teams answered wrong (team 2 just answered wrong and has double option)
         const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && !isPassed && currentState!.team2HasDoubleOption;
 
+        // Store the correct answer for display in scoreboard
+        const correctAnswerToStore = (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) 
+          ? currentState!.currentQuestion.correct_answer 
+          : null;
         update(state => ({
           ...state,
           session: updatedSession,
@@ -262,7 +268,8 @@ function createGameStore() {
           gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
           team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed,
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null
-        }));
+          showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
+          lastCorrectAnswer: correctAnswerToStore
 
         // Trigger confetti animation
         if (!isPassed) {
@@ -315,9 +322,13 @@ function createGameStore() {
         showCorrectAnswer: null,
         loadError: null,
         isQuestionFading: false
-      });
+        isQuestionFading: false,
+        lastCorrectAnswer: null
     }
   };
+  lastCorrectAnswer: string | null;
 }
 
 export const gameStore = createGameStore();
+    isQuestionFading: false,
+    lastCorrectAnswer: null
