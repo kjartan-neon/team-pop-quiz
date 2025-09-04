@@ -219,10 +219,12 @@ function createGameStore() {
       const updatedSession = { ...currentState!.session };
       if (currentTeam === 1) {
         updatedSession.team1_score += pointsAwarded;
-        updatedSession.current_turn = 2;
+        // If team 1 got it right or wrong, team 2 gets a turn
+        updatedSession.current_turn = isCorrect ? 2 : 2;
       } else {
         updatedSession.team2_score += pointsAwarded;
-        updatedSession.current_turn = 1;
+        // If team 2 got it right, move to team 1. If wrong, team 1 gets to try
+        updatedSession.current_turn = isCorrect ? 1 : 1;
       }
 
       try {
@@ -251,14 +253,25 @@ function createGameStore() {
         const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && currentState!.team2HasDoubleOption;
 
         // Store the correct answer for display in scoreboard
-        const correctAnswerToStore = (currentTeam === 2 || (currentTeam === 1 && isCorrect)) 
+        const correctAnswerToStore = (currentTeam === 2 && isCorrect) || (currentTeam === 1 && !isCorrect && currentState!.team2HasDoubleOption)
           ? currentState!.currentQuestion.correct_answer 
           : null;
+        
+        // Determine next game phase
+        let nextGamePhase;
+        if (isCorrect) {
+          // If correct, switch to other team for new question
+          nextGamePhase = currentTeam === 1 ? 'team2_turn' : 'team1_turn';
+        } else {
+          // If wrong, other team gets to try same question
+          nextGamePhase = currentTeam === 1 ? 'team2_turn' : 'team1_turn';
+        }
+        
         update(state => ({
           ...state,
           session: updatedSession,
           lastAnswer: { team: currentTeam, correct: isCorrect, points: pointsAwarded },
-          gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
+          gamePhase: nextGamePhase,
           team2HasDoubleOption: currentTeam === 1 && !isCorrect,
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
           lastCorrectAnswer: correctAnswerToStore
@@ -270,7 +283,12 @@ function createGameStore() {
         // Start fade out animation
         update(state => ({ ...state, isQuestionFading: true }));
 
-        if (currentTeam === 2 || (currentTeam === 1 && isCorrect)) {
+        // Load new question only when:
+        // 1. Someone got it right, OR
+        // 2. Both teams got it wrong (team 2 just answered wrong and had double option)
+        const shouldLoadNewQuestion = isCorrect || (currentTeam === 2 && !isCorrect && currentState!.team2HasDoubleOption);
+        
+        if (shouldLoadNewQuestion) {
           // Wait for fade out, then load new question and fade in
           setTimeout(() => {
             this.loadNextQuestion();
@@ -280,9 +298,9 @@ function createGameStore() {
               showCorrectAnswer: null,
               isQuestionFading: false
             }));
-          }, 3500); // 500ms for fade out + 3000ms delay
+          }, 3500);
         } else {
-          // Just fade back in for team 2's turn
+          // Just fade back in for the other team's turn on same question
           setTimeout(() => {
             update(state => ({ ...state, isQuestionFading: false }));
           }, 500);
