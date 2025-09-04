@@ -16,6 +16,7 @@
     points: number;
   } | null = null;
   export let showCorrectAnswer: string | null = null;
+  export let isQuestionFading: boolean = false;
 
   let selectedAnswer = '';
   let numberInput = '';
@@ -42,7 +43,7 @@
   }
 </script>
 
-<div class="bg-white rounded-xl shadow-lg p-8">
+<div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-500 {isQuestionFading ? 'fade-out' : 'fade-in'}">
   {#if lastAnswer}
     <div class="mb-6 p-4 rounded-lg {lastAnswer.correct 
       ? 'bg-green-100 border border-green-300' 

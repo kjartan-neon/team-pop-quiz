@@ -12,7 +12,8 @@ function createGameStore() {
     team2HasDoubleOption: false,
     lastAnswer: null,
     showCorrectAnswer: null,
-    loadError: null
+    loadError: null,
+    isQuestionFading: false
   });
 
   return {
@@ -53,7 +54,8 @@ function createGameStore() {
           gamePhase: 'team1_turn',
           isLoading: false,
           showCorrectAnswer: null,
-          loadError: null
+          loadError: null,
+          isQuestionFading: false
         }));
 
         await this.loadNextQuestion();
@@ -108,7 +110,8 @@ function createGameStore() {
           gamePhase: session.current_turn === 1 ? 'team1_turn' : 'team2_turn',
           isLoading: false,
           showCorrectAnswer: null,
-          loadError: null
+          loadError: null,
+          isQuestionFading: false
         }));
 
         await this.loadNextQuestion();
@@ -161,7 +164,8 @@ function createGameStore() {
             ...state,
             currentQuestion: randomQuestion,
             lastAnswer: null,
-            showCorrectAnswer: null
+            showCorrectAnswer: null,
+            isQuestionFading: false
           }));
         }
       } catch (error) {
@@ -265,15 +269,25 @@ function createGameStore() {
           setTimeout(() => createConfetti(isCorrect), 100);
         }
 
+        // Start fade out animation
+        update(state => ({ ...state, isQuestionFading: true }));
+
         if (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) {
+          // Wait for fade out, then load new question and fade in
           setTimeout(() => {
             this.loadNextQuestion();
             update(state => ({ 
               ...state, 
               team2HasDoubleOption: false,
-              showCorrectAnswer: null 
+              showCorrectAnswer: null,
+              isQuestionFading: false
             }));
-          }, 3000);
+          }, 3500); // 500ms for fade out + 3000ms delay
+        } else {
+          // Just fade back in for team 2's turn
+          setTimeout(() => {
+            update(state => ({ ...state, isQuestionFading: false }));
+          }, 500);
         }
       } catch (error) {
         console.error('Error submitting answer:', error);
@@ -285,7 +299,8 @@ function createGameStore() {
       update(state => ({ 
         ...state, 
         team2HasDoubleOption: false,
-        showCorrectAnswer: null 
+        showCorrectAnswer: null,
+        isQuestionFading: false
       }));
     },
 
@@ -298,7 +313,8 @@ function createGameStore() {
         team2HasDoubleOption: false,
         lastAnswer: null,
         showCorrectAnswer: null,
-        loadError: null
+        loadError: null,
+        isQuestionFading: false
       });
     }
   };

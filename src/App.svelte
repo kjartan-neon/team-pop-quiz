@@ -10,7 +10,8 @@
     isLoading: false,
     gamePhase: 'setup',
     team2HasDoubleOption: false,
-    lastAnswer: null
+    lastAnswer: null,
+    isQuestionFading: false
   };
 
   gameStore.subscribe(state => {
@@ -62,6 +63,7 @@
         hasDoubleOption={gameState.team2HasDoubleOption}
         lastAnswer={gameState.lastAnswer}
         showCorrectAnswer={gameState.showCorrectAnswer}
+        isQuestionFading={gameState.isQuestionFading}
         onAnswer={handleAnswer}
         onPass={handlePass}
         onChooseNewQuestion={gameState.team2HasDoubleOption ? handleChooseNewQuestion : undefined}
