@@ -32,10 +32,58 @@
   <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-2xl">
     <div class="text-center mb-8">
       <Logo className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">POP-quiz</h1>
-      <p class="text-xl text-gray-600 mb-2">Presentert av NRKs beste team</p>
-      <p class="text-lg font-semibold text-brand-dark">✨ Team POP ✨</p>
-      <p class="text-sm text-gray-500 mt-1">Den ultimate produkt-team quiz-opplevelsen. (neida, joda)</p>
+      <div class="relative overflow-hidden rounded-2xl p-8 mb-4">
+        <!-- Animated star background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900">
+          {#each Array(20) as _, i}
+            <div 
+              class="absolute w-2 h-2 bg-white rounded-full animate-pulse"
+              style="
+                left: {Math.random() * 100}%;
+                top: {Math.random() * 100}%;
+                animation-delay: {Math.random() * 3}s;
+                animation-duration: {2 + Math.random() * 2}s;
+              "
+            ></div>
+          {/each}
+          {#each Array(15) as _, i}
+            <div 
+              class="absolute w-1 h-1 bg-yellow-300 rounded-full star-twinkle"
+              style="
+                left: {Math.random() * 100}%;
+                top: {Math.random() * 100}%;
+                animation-delay: {Math.random() * 4}s;
+              "
+            ></div>
+          {/each}
+          {#each Array(8) as _, i}
+            <div 
+              class="absolute text-yellow-200 text-lg star-swirl"
+              style="
+                left: {Math.random() * 90}%;
+                top: {Math.random() * 90}%;
+                animation-delay: {Math.random() * 6}s;
+              "
+            >⭐</div>
+          {/each}
+        </div>
+        
+        <!-- Header content -->
+        <div class="relative z-10">
+          <h1 class="text-5xl font-bold text-white mb-3 text-shadow-lg animate-bounce-subtle">
+            🎯 POP-quiz 🎯
+          </h1>
+          <p class="text-2xl text-yellow-200 mb-2 font-semibold animate-fade-in">
+            Presentert av NRKs beste team
+          </p>
+          <p class="text-3xl font-bold text-yellow-300 mb-2 animate-glow">
+            ✨ Team POP ✨
+          </p>
+          <p class="text-lg text-blue-200 animate-fade-in-delayed">
+            Den ultimate produkt-team quiz-opplevelsen! 🚀
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
