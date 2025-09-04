@@ -197,6 +197,17 @@ function createGameStore() {
     async chooseNewQuestion() {
       await this.loadNextQuestion();
       update(state => ({ ...state, team2HasDoubleOption: false }));
+    },
+
+    resetToSetup() {
+      set({
+        session: null,
+        currentQuestion: null,
+        isLoading: false,
+        gamePhase: 'setup',
+        team2HasDoubleOption: false,
+        lastAnswer: null
+      });
     }
   };
 }

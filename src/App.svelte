@@ -34,6 +34,10 @@
   function handleLoadNextQuestion() {
     gameStore.loadNextQuestion();
   }
+
+  function handleBackToConfig() {
+    gameStore.resetToSetup();
+  }
 </script>
 
 {#if gameState.gamePhase === 'setup'}
@@ -63,12 +67,20 @@
       />
 
       <div class="mt-6 text-center">
-        <button
-          on:click={handleLoadNextQuestion}
-          class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-lg font-medium transition-colors"
-        >
-          Hopp til neste spørsmål
-        </button>
+        <div class="flex gap-4 justify-center">
+          <button
+            on:click={handleLoadNextQuestion}
+            class="bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-s font-medium transition-colors"
+          >
+            Hopp til neste spørsmål
+          </button>
+          <button
+            on:click={handleBackToConfig}
+            class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-s font-medium transition-colors"
+          >
+            Tilbake til konfigurasjon
+          </button>
+        </div>
       </div>
     </div>
   </div>

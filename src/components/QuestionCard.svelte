@@ -27,6 +27,8 @@
       onAnswer(answer);
       selectedAnswer = '';
       numberInput = '';
+      // Smooth scroll to top to show results
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
 
@@ -34,6 +36,8 @@
     onPass();
     selectedAnswer = '';
     numberInput = '';
+    // Smooth scroll to top to show results
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
 
