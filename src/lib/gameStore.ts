@@ -13,7 +13,8 @@ function createGameStore() {
     lastAnswer: null,
     showCorrectAnswer: null,
     loadError: null,
-    isQuestionFading: false
+    isQuestionFading: false,
+    lastCorrectAnswer: null
   });
 
   return {
@@ -267,11 +268,9 @@ function createGameStore() {
           lastAnswer: { team: currentTeam, correct: isCorrect, points: pointsAwarded },
           gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
           team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed,
-          showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
           lastCorrectAnswer: correctAnswerToStore
-        )
-        )
+        }));
 
         // Trigger confetti animation
         if (!isPassed) {
@@ -323,16 +322,11 @@ function createGameStore() {
         lastAnswer: null,
         showCorrectAnswer: null,
         loadError: null,
-        isQuestionFading: false
         isQuestionFading: false,
         lastCorrectAnswer: null
-          }
-      )
-      };
-  }
-  lastCorrectAnswer: string | null;
+      });
+    }
+  };
 }
 
 export const gameStore = createGameStore();
-    isQuestionFading: false,
-    lastCorrectAnswer: null
