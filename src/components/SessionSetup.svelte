@@ -57,7 +57,7 @@
           <!-- Text -->
           <div>
             <p class="text-sm text-white mb-1">
-              En produkt-team quiz fra Team POP i NRK. Del teamet ditt i to lag, og svar på spørsmål. Konkurrer, spis kjeks, fortsett over flere sesjoner, og le av litt rare AI-genererte spørsmål.
+              En produkt-team quiz fra Team POP i NRK. Del teamet ditt i to lag og svar på spørsmål. Konkurrer, spis kjeks, og le av litt rare AI-genererte spørsmål. Du kan enkelt fortsette over flere sesjoner ved å notere ned kodeordet.
             </p>
           </div>
         </div>
