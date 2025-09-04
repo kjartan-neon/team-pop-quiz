@@ -34,7 +34,7 @@
       <Logo className="h-16 w-16 text-blue-600 mx-auto mb-4" />
       <div class="relative overflow-hidden rounded-2xl p-8 mb-4">
         <!-- Animated star background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900">
+        <div class="absolute inset-0" style="background-color: var(--brand-dark);">
           {#each Array(20) as _, i}
             <div 
               class="absolute w-2 h-2 bg-white rounded-full animate-pulse"
@@ -58,29 +58,29 @@
           {/each}
           {#each Array(8) as _, i}
             <div 
-              class="absolute text-yellow-200 text-lg star-swirl"
+              class="absolute w-3 h-3 bg-yellow-300 rounded-full star-swirl"
               style="
                 left: {Math.random() * 90}%;
                 top: {Math.random() * 90}%;
                 animation-delay: {Math.random() * 6}s;
               "
-            >⭐</div>
+            ></div>
           {/each}
         </div>
         
         <!-- Header content -->
         <div class="relative z-10">
-          <h1 class="text-5xl font-bold text-white mb-3 text-shadow-lg animate-bounce-subtle">
-            🎯 POP-quiz 🎯
+          <h1 class="text-3xl font-bold text-white mb-2 text-shadow-lg animate-bounce-subtle">
+            🎯 POP-quiz
           </h1>
-          <p class="text-2xl text-yellow-200 mb-2 font-semibold animate-fade-in">
+          <p class="text-lg text-yellow-200 mb-1 font-semibold animate-fade-in">
             Presentert av NRKs beste team
           </p>
-          <p class="text-3xl font-bold text-yellow-300 mb-2 animate-glow">
+          <p class="text-xl font-bold text-yellow-300 mb-1 animate-glow">
             ✨ Team POP ✨
           </p>
-          <p class="text-lg text-blue-200 animate-fade-in-delayed">
-            Den ultimate produkt-team quiz-opplevelsen! 🚀
+          <p class="text-sm text-blue-200 animate-fade-in-delayed">
+            Den ultimate quiz-opplevelsen! 🚀
           </p>
         </div>
       </div>

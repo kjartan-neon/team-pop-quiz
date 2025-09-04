@@ -635,7 +635,7 @@ input:focus {
 }
 
 .star-swirl {
-  animation: swirl 8s linear infinite;
+  animation: swirl 6s linear infinite;
 }
 
 @keyframes bounce-subtle {
