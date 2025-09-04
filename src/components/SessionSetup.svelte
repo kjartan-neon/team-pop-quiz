@@ -82,7 +82,7 @@
         <div class="grid md:grid-cols-2 gap-4">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              Lag 1 (Mørkeblå)
+              Navn på Lag 1 (Mørkeblå)
             </label>
             <input
               type="text"
@@ -93,7 +93,7 @@
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
-              Lag 2 (Korall)
+              Navn på Lag 2 (Korall)
             </label>
             <input
               type="text"
