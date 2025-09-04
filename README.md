@@ -4,8 +4,10 @@ Dette er en produkt-team quiz fra Team POP i NRK skrevet i svelte. Del teamet di
 
 # Slik gjør du:
 * Del teamet ditt i to
-* Svar på spørsmål
-* Le av rare AI spørsmål
+* Skriv inn kreative lagnavn, eller bare fornavn til hvem som er på lag så du husker til neste gang
+* Svar på spørsmål ved å trykke på svaret.
+* Svarer du feil får du minus, og motstanderen får sjanse til å svare på spørsmålet
+* Le av rare AI spørsmål. Dette er vibe-kodet av Kjartan, og alle 708 spørsmål er AI generert. Men det er en del av moroa.
 * Fortsett fra forrige gang ved å notere ned kode-ord
 * Profit!
 
