@@ -270,7 +270,6 @@ function createGameStore() {
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
           lastCorrectAnswer: correctAnswerToStore
-        }
         )
         )
 
