@@ -15,7 +15,7 @@
 
 <div class="bg-white rounded-xl shadow-lg p-4 mb-4">  
   {#if lastAnswer}
-    <div class="mb-3 p-3 rounded-lg {lastAnswer.correct 
+    <div class="mb-3 p-3 items-center rounded-lg {lastAnswer.correct 
       ? 'bg-green-100 border border-green-300' 
       : 'bg-red-100 border border-red-300'}">
       <div class="flex items-center gap-2">
