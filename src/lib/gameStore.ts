@@ -22,12 +22,25 @@ function createGameStore() {
       update(state => ({ ...state, isLoading: true }));
       
       try {
+        // Sanitize inputs on client side as well
+        const sanitizedWordCombination = wordCombination.trim().toLowerCase().slice(0, 50);
+        const sanitizedTeam1Name = team1Name.trim().slice(0, 50);
+        const sanitizedTeam2Name = team2Name.trim().slice(0, 50);
+        
+        // Basic validation
+        if (sanitizedWordCombination.length < 3) {
+          throw new Error('Sesjonsord må være minst 3 tegn langt');
+        }
+        if (sanitizedTeam1Name.length < 1 || sanitizedTeam2Name.length < 1) {
+          throw new Error('Lagnavn må være minst 1 tegn langt');
+        }
+        
         const { data: session, error } = await supabase
           .from('quiz_sessions')
           .insert({
-            word_combination: wordCombination,
-            team1_name: team1Name,
-            team2_name: team2Name
+            word_combination: sanitizedWordCombination,
+            team1_name: sanitizedTeam1Name,
+            team2_name: sanitizedTeam2Name
           })
           .select()
           .single();
@@ -46,7 +59,11 @@ function createGameStore() {
         await this.loadNextQuestion();
       } catch (error) {
         console.error('Error creating session:', error);
-        update(state => ({ ...state, isLoading: false }));
+        update(state => ({ 
+          ...state, 
+          isLoading: false,
+          loadError: error.message || 'Det oppstod en feil ved opprettelse av sesjonen'
+        }));
       }
     },
 
@@ -54,10 +71,22 @@ function createGameStore() {
       update(state => ({ ...state, isLoading: true }));
       
       try {
+        // Sanitize input
+        const sanitizedWordCombination = wordCombination.trim().toLowerCase().slice(0, 50);
+        
+        if (sanitizedWordCombination.length < 3) {
+          update(state => ({
+            ...state,
+            isLoading: false,
+            loadError: 'Sesjonsord må være minst 3 tegn langt'
+          }));
+          return;
+        }
+        
         const { data: session, error } = await supabase
           .from('quiz_sessions')
           .select('*')
-          .eq('word_combination', wordCombination)
+          .eq('word_combination', sanitizedWordCombination)
           .single();
 
         if (error) {
@@ -88,7 +117,7 @@ function createGameStore() {
         update(state => ({ 
           ...state, 
           isLoading: false,
-          loadError: 'Det oppstod en feil ved lasting av sesjonen. Prøv igjen.'
+          loadError: error.message || 'Det oppstod en feil ved lasting av sesjonen. Prøv igjen.'
         }));
       }
     },
@@ -148,15 +177,19 @@ function createGameStore() {
       if (!currentState!.session || !currentState!.currentQuestion) return;
 
       const currentTeam = currentState!.gamePhase === 'team1_turn' ? 1 : 2;
+      
+      // Sanitize answer input
+      const sanitizedAnswer = isPassed ? '' : answer.trim().slice(0, 200);
+      
       let isCorrect = false;
       let pointsAwarded = 0;
 
       if (!isPassed) {
         if (currentState!.currentQuestion.question_type === 'multiple_choice') {
-          isCorrect = answer === currentState!.currentQuestion.correct_answer;
+          isCorrect = sanitizedAnswer === currentState!.currentQuestion.correct_answer;
         } else {
           const correctNumber = parseFloat(currentState!.currentQuestion.correct_answer);
-          const userNumber = parseFloat(answer);
+          const userNumber = parseFloat(sanitizedAnswer);
           const margin = correctNumber * 0.1;
           isCorrect = Math.abs(userNumber - correctNumber) <= margin;
         }
@@ -210,7 +243,7 @@ function createGameStore() {
             session_id: currentState!.session.id,
             question_id: currentState!.currentQuestion.id,
             team_number: currentTeam,
-            answer_given: isPassed ? null : answer,
+            answer_given: isPassed ? null : sanitizedAnswer,
             is_correct: isPassed ? null : isCorrect,
             points_awarded: pointsAwarded
           });

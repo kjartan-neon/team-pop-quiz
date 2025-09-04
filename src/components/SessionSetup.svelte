@@ -17,10 +17,28 @@
   });
 
   function handleCreateSession() {
+    // Basic client-side validation
+    if (wordCombination.trim().length < 3) {
+      loadError = 'Sesjonsord må være minst 3 tegn langt';
+      return;
+    }
+    if (team1Name.trim().length < 1 || team2Name.trim().length < 1) {
+      loadError = 'Begge lagnavn må fylles ut';
+      return;
+    }
+    
+    loadError = null;
     gameStore.createSession(wordCombination, team1Name, team2Name);
   }
 
   function handleLoadSession() {
+    // Basic client-side validation
+    if (loadWordCombination.trim().length < 3) {
+      loadError = 'Sesjonsord må være minst 3 tegn langt';
+      return;
+    }
+    
+    loadError = null;
     gameStore.loadSession(loadWordCombination.toLowerCase());
   }
 
@@ -95,6 +113,7 @@
             <input
               type="text"
               bind:value={wordCombination}
+              maxlength="50"
               class="flex-1 px-4 py-3 border border-gray-300 rounded-s focus:ring-2 focus:border-transparent text-lg font-mono"
               placeholder="f.eks. gul bjørn"
             />
@@ -115,6 +134,7 @@
             <input
               type="text"
               bind:value={team1Name}
+              maxlength="50"
               class="w-full px-4 py-3 border-2 border-brand-light rounded-s focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
               placeholder="Navn på lag 1"
             />
@@ -126,6 +146,7 @@
             <input
               type="text"
               bind:value={team2Name}
+              maxlength="50"
               class="w-full px-4 py-3 border-2 border-accent-light rounded-s focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
               placeholder="Navn på lag 2"
             />
@@ -155,6 +176,7 @@
           <input
             type="text"
             bind:value={loadWordCombination}
+            maxlength="50"
             class="w-full px-4 py-3 border border-gray-300 rounded-s focus:ring-2 focus:border-transparent text-lg font-mono"
             placeholder="f.eks. gul bjørn"
           />
