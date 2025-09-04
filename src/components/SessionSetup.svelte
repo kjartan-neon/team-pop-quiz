@@ -54,10 +54,7 @@
               🎯 POP-quiz
             </h1>
             <p class="text-sm text-white mb-1">
-              📺 Presentert av NRKs beste team
-            </p>
-            <p class="text-lg font-bold text-yellow-300">
-              ⭐ Team POP ⭐
+              📺 Presentert av NRKs ⭐ Team POP ⭐
             </p>
           </div>
         </div>
