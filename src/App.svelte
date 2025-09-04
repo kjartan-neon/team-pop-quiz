@@ -37,6 +37,10 @@
   function handleBackToConfig() {
     gameStore.resetToSetup();
   }
+
+  function handleFlagQuestion() {
+    gameStore.flagQuestion();
+  }
 </script>
 
 {#if gameState.gamePhase === 'setup'}
@@ -64,6 +68,7 @@
         showCorrectAnswer={gameState.showCorrectAnswer}
         isQuestionFading={gameState.isQuestionFading}
         onAnswer={handleAnswer}
+        onFlagQuestion={handleFlagQuestion}
         onChooseNewQuestion={gameState.team2HasDoubleOption ? handleChooseNewQuestion : undefined}
       />
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CheckCircle, Zap } from 'lucide-svelte';
+  import { CheckCircle, Zap, Flag } from 'lucide-svelte';
   import type { Question } from '../types/quiz';
 
   export let question: Question;
@@ -9,6 +9,7 @@
   export let hasDoubleOption: boolean;
   export let onAnswer: (answer: string) => void;
   export let onChooseNewQuestion: (() => void) | undefined = undefined;
+  export let onFlagQuestion: (() => void) | undefined = undefined;
   export let showCorrectAnswer: string | null = null;
   export let isQuestionFading: boolean = false;
 
@@ -124,6 +125,15 @@
       Svar
     </button>
 
+    {#if onFlagQuestion}
+      <button
+        on:click={onFlagQuestion}
+        class="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
+      >
+        <Flag class="h-4 w-4" />
+        Rapporter feil i spørsmål
+      </button>
+    {/if}
 
     {#if hasDoubleOption && currentTeam === 2 && onChooseNewQuestion}
       <button

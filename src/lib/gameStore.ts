@@ -144,6 +144,7 @@ function createGameStore() {
         const { data: questions, error } = await supabase
           .from('quiz_questions')
           .select('*')
+          .eq('is_flagged', false)
           .range(randomOffset, randomOffset)
           .limit(1);
 
@@ -307,6 +308,39 @@ function createGameStore() {
         }
       } catch (error) {
         console.error('Error submitting answer:', error);
+      }
+    },
+
+    async flagQuestion() {
+      let currentState: GameState;
+      const unsubscribe = subscribe(state => currentState = state);
+      unsubscribe();
+
+      if (!currentState!.currentQuestion) return;
+
+      try {
+        // Flag the question in the database
+        await supabase
+          .from('quiz_questions')
+          .update({
+            is_flagged: true,
+            flagged_at: new Date().toISOString(),
+            flag_reason: 'User reported error'
+          })
+          .eq('id', currentState!.currentQuestion.id);
+
+        // Load a new question immediately
+        await this.loadNextQuestion();
+        
+        update(state => ({ 
+          ...state, 
+          team2HasDoubleOption: false,
+          showCorrectAnswer: null,
+          isQuestionFading: false,
+          lastAnswer: null
+        }));
+      } catch (error) {
+        console.error('Error flagging question:', error);
       }
     },
 
