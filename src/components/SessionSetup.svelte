@@ -2,7 +2,6 @@
   import { Play, Search } from 'lucide-svelte';
   import { generateWordCombination } from '../lib/wordCombinations';
   import { gameStore } from '../lib/gameStore';
-  import Logo from './Logo.svelte';
 
   let mode: 'create' | 'load' = 'create';
   let wordCombination = generateWordCombination();
@@ -69,9 +68,7 @@
         </div>
         
         <!-- Header content with logo left and text right -->
-        <div class="relative z-10 flex items-center gap-4">
-          <Logo className="h-12 w-12 max-w-[50px] max-h-[50px] text-white flex-shrink-0" />
-          <div class="text-left flex-1">
+        <div class="relative z-10 text-center">
             <h1 class="text-xl font-bold text-white mb-1 animate-bounce-subtle">
               POP-quiz
             </h1>
@@ -81,7 +78,6 @@
             <p class="text-lg font-bold text-yellow-300 animate-glow">
               Team POP
             </p>
-          </div>
         </div>
       </div>
     </div>
