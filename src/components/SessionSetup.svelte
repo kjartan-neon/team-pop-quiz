@@ -47,15 +47,12 @@
   </g>
 </svg>
 
-          </div>
-          
-          <!-- Text -->
-          <div class="flex-1 text-center">
+         
             <h1 class="text-2xl font-bold text-white mb-1">
               🎯 POP-quiz
             </h1>
             <p class="text-sm text-white mb-1">
-              📺 Presentert av NRKs ⭐ Team POP ⭐
+              En produkt-team quiz fra Team POP i NRK. Del teamet ditt i to lag, og svar på annen hvert spørsmål. Konkurrer, fortsett over flere sesjoner, og le av litt rare AI-genererte spørsmål.
             </p>
           </div>
         </div>
