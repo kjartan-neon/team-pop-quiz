@@ -7,10 +7,6 @@
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-  <div class="flex items-center justify-center gap-2 mb-6">
-    <Trophy class="h-6 w-6 text-yellow-500" />
-    <h2 class="text-2xl font-bold text-gray-900">Poengstilling</h2>
-  </div>
   
   <div class="grid grid-cols-2 gap-4">
     <div class="p-6 rounded-xl border-2 transition-all {currentTurn === 1
