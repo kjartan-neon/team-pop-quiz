@@ -242,8 +242,8 @@ function createGameStore() {
             session_id: currentState!.session.id,
             question_id: currentState!.currentQuestion.id,
             team_number: currentTeam,
-            answer_given: isPassed ? null : sanitizedAnswer,
-            is_correct: isPassed ? null : isCorrect,
+            answer_given: sanitizedAnswer,
+            is_correct: isCorrect,
             points_awarded: pointsAwarded
           });
 
