@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 import { supabase } from './supabase';
 import type { GameState, Session, Question } from '../types/quiz';
+import { createConfetti } from './confetti';
 
 function createGameStore() {
   const { subscribe, set, update } = writable<GameState>({
@@ -160,6 +161,11 @@ function createGameStore() {
           gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
           team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed
         }));
+
+        // Trigger confetti animation
+        if (!isPassed) {
+          setTimeout(() => createConfetti(isCorrect), 100);
+        }
 
         if (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) {
           setTimeout(() => {

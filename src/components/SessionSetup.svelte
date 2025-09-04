@@ -33,7 +33,9 @@
     <div class="text-center mb-8">
       <Logo className="h-16 w-16 text-blue-600 mx-auto mb-4" />
       <h1 class="text-4xl font-bold text-gray-900 mb-2">POP-quiz</h1>
-      <p class="text-xl text-gray-600">For to lag i samme rom</p>
+      <p class="text-xl text-gray-600 mb-2">Presentert av NRKs beste team</p>
+      <p class="text-lg font-semibold text-brand-dark">✨ Team POP ✨</p>
+      <p class="text-sm text-gray-500 mt-1">Den ultimate quiz-opplevelsen</p>
     </div>
 
     <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
