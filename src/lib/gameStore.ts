@@ -74,16 +74,27 @@ function createGameStore() {
 
     async loadNextQuestion() {
       try {
+        // First get the total count of questions
+        const { count, error: countError } = await supabase
+          .from('quiz_questions')
+          .select('*', { count: 'exact', head: true });
+
+        if (countError) throw countError;
+        if (!count || count === 0) return;
+
+        // Generate a random offset to get a truly random question
+        const randomOffset = Math.floor(Math.random() * count);
+        
         const { data: questions, error } = await supabase
           .from('quiz_questions')
           .select('*')
-          .order('created_at', { ascending: false })
-          .limit(50);
+          .range(randomOffset, randomOffset)
+          .limit(1);
 
         if (error) throw error;
 
         if (questions && questions.length > 0) {
-          const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+          const randomQuestion = questions[0];
           update(state => ({
             ...state,
             currentQuestion: randomQuestion,
