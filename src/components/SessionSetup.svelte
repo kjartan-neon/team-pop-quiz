@@ -29,13 +29,14 @@
 </script>
 
 <div class="min-h-screen bg-gradient-blue-orange flex items-center justify-center p-4">
-  <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-2xl">
+  <div class="w-full max-w-2xl">
+    <!-- Header outside the card -->
     <div class="text-center mb-8">
-      <Logo className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-      <div class="relative overflow-hidden rounded-2xl p-8 mb-4">
-        <!-- Animated star background -->
+      <Logo className="h-16 w-16 text-brand-dark mx-auto mb-4" />
+      <div class="relative overflow-hidden rounded-2xl p-6 mb-4">
+        <!-- Animated circle background -->
         <div class="absolute inset-0" style="background-color: var(--brand-dark);">
-          {#each Array(20) as _, i}
+          {#each Array(15) as _, i}
             <div 
               class="absolute w-2 h-2 bg-white rounded-full animate-pulse"
               style="
@@ -46,7 +47,7 @@
               "
             ></div>
           {/each}
-          {#each Array(15) as _, i}
+          {#each Array(10) as _, i}
             <div 
               class="absolute w-1 h-1 bg-yellow-300 rounded-full star-twinkle"
               style="
@@ -56,7 +57,7 @@
               "
             ></div>
           {/each}
-          {#each Array(8) as _, i}
+          {#each Array(6) as _, i}
             <div 
               class="absolute w-3 h-3 bg-yellow-300 rounded-full star-swirl"
               style="
@@ -70,7 +71,7 @@
         
         <!-- Header content -->
         <div class="relative z-10">
-          <h1 class="text-3xl font-bold text-white mb-2 text-shadow-lg animate-bounce-subtle">
+          <h1 class="text-2xl font-bold text-white mb-2 text-shadow-lg animate-bounce-subtle">
             🎯 POP-quiz
           </h1>
           <p class="text-lg text-yellow-200 mb-1 font-semibold animate-fade-in">
@@ -86,6 +87,8 @@
       </div>
     </div>
 
+    <!-- Session setup card -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8">
     <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
       <button
         on:click={() => mode = 'create'}
@@ -193,5 +196,6 @@
         </button>
       </div>
     {/if}
+    </div>
   </div>
 </div>
