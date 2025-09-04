@@ -25,9 +25,6 @@
     gameStore.submitAnswer(answer);
   }
 
-  function handlePass() {
-    gameStore.submitAnswer('', true);
-  }
 
   function handleChooseNewQuestion() {
     gameStore.chooseNewQuestion();
@@ -67,7 +64,6 @@
         showCorrectAnswer={gameState.showCorrectAnswer}
         isQuestionFading={gameState.isQuestionFading}
         onAnswer={handleAnswer}
-        onPass={handlePass}
         onChooseNewQuestion={gameState.team2HasDoubleOption ? handleChooseNewQuestion : undefined}
       />
 

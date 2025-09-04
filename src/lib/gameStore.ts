@@ -176,7 +176,7 @@ function createGameStore() {
       }
     },
 
-    async submitAnswer(answer: string, isPassed: boolean = false) {
+    async submitAnswer(answer: string) {
       let currentState: GameState;
       const unsubscribe = subscribe(state => currentState = state);
       unsubscribe();
@@ -186,42 +186,34 @@ function createGameStore() {
       const currentTeam = currentState!.gamePhase === 'team1_turn' ? 1 : 2;
       
       // Sanitize answer input
-      const sanitizedAnswer = isPassed ? '' : answer.trim().slice(0, 200);
+      const sanitizedAnswer = answer.trim().slice(0, 200);
       
       let isCorrect = false;
       let pointsAwarded = 0;
 
-      if (!isPassed) {
-        if (currentState!.currentQuestion.question_type === 'multiple_choice') {
-          isCorrect = sanitizedAnswer === currentState!.currentQuestion.correct_answer;
-        } else {
-          const correctNumber = parseFloat(currentState!.currentQuestion.correct_answer);
-          const userNumber = parseFloat(sanitizedAnswer);
-          const margin = correctNumber * 0.1;
-          isCorrect = Math.abs(userNumber - correctNumber) <= margin;
-        }
+      if (currentState!.currentQuestion.question_type === 'multiple_choice') {
+        isCorrect = sanitizedAnswer === currentState!.currentQuestion.correct_answer;
+      } else {
+        const correctNumber = parseFloat(currentState!.currentQuestion.correct_answer);
+        const userNumber = parseFloat(sanitizedAnswer);
+        const margin = correctNumber * 0.1;
+        isCorrect = Math.abs(userNumber - correctNumber) <= margin;
+      }
 
-        if (isCorrect) {
-          // Base points based on difficulty
-          let basePoints = 25; // easy
-          if (currentState!.currentQuestion.difficulty === 'medium') {
-            basePoints = 50;
-          } else if (currentState!.currentQuestion.difficulty === 'hard') {
-            basePoints = 100;
-          }
-          
-          // Double points for team 2 if they have the double option
-          pointsAwarded = currentTeam === 2 && currentState!.team2HasDoubleOption ? basePoints * 2 : basePoints;
-        } else {
-          // Negative points based on difficulty (half of positive points)
-          let basePenalty = -12; // easy (-12)
-          if (currentState!.currentQuestion.difficulty === 'medium') {
-            basePenalty = -25;
-          } else if (currentState!.currentQuestion.difficulty === 'hard') {
-            basePenalty = -50;
-          }
-          pointsAwarded = basePenalty;
+      if (isCorrect) {
+        // Base points based on difficulty
+        let basePoints = 25; // easy
+        if (currentState!.currentQuestion.difficulty === 'medium') {
+          basePoints = 50;
+        } else if (currentState!.currentQuestion.difficulty === 'hard') {
+          basePoints = 100;
         }
+        
+        // Double points for team 2 if they have the double option
+        pointsAwarded = currentTeam === 2 && currentState!.team2HasDoubleOption ? basePoints * 2 : basePoints;
+      } else {
+        // Fixed penalty of -10 points for wrong answers
+        pointsAwarded = -10;
       }
 
       const updatedSession = { ...currentState!.session };
@@ -256,10 +248,10 @@ function createGameStore() {
           });
 
         // Check if both teams answered wrong (team 2 just answered wrong and has double option)
-        const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && !isPassed && currentState!.team2HasDoubleOption;
+        const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && currentState!.team2HasDoubleOption;
 
         // Store the correct answer for display in scoreboard
-        const correctAnswerToStore = (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) 
+        const correctAnswerToStore = (currentTeam === 2 || (currentTeam === 1 && isCorrect)) 
           ? currentState!.currentQuestion.correct_answer 
           : null;
         update(state => ({
@@ -267,20 +259,18 @@ function createGameStore() {
           session: updatedSession,
           lastAnswer: { team: currentTeam, correct: isCorrect, points: pointsAwarded },
           gamePhase: currentTeam === 1 ? 'team2_turn' : 'team1_turn',
-          team2HasDoubleOption: currentTeam === 1 && !isCorrect && !isPassed,
+          team2HasDoubleOption: currentTeam === 1 && !isCorrect,
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
           lastCorrectAnswer: correctAnswerToStore
         }));
 
         // Trigger confetti animation
-        if (!isPassed) {
-          setTimeout(() => createConfetti(isCorrect), 100);
-        }
+        setTimeout(() => createConfetti(isCorrect), 100);
 
         // Start fade out animation
         update(state => ({ ...state, isQuestionFading: true }));
 
-        if (currentTeam === 2 || (currentTeam === 1 && (isCorrect || isPassed))) {
+        if (currentTeam === 2 || (currentTeam === 1 && isCorrect)) {
           // Wait for fade out, then load new question and fade in
           setTimeout(() => {
             this.loadNextQuestion();

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CheckCircle, XCircle, SkipForward, Zap } from 'lucide-svelte';
+  import { CheckCircle, Zap } from 'lucide-svelte';
   import type { Question } from '../types/quiz';
 
   export let question: Question;
@@ -8,7 +8,6 @@
   export let team2Name: string;
   export let hasDoubleOption: boolean;
   export let onAnswer: (answer: string) => void;
-  export let onPass: () => void;
   export let onChooseNewQuestion: (() => void) | undefined = undefined;
   export let showCorrectAnswer: string | null = null;
   export let isQuestionFading: boolean = false;
@@ -29,13 +28,6 @@
     }
   }
 
-  function handlePass() {
-    onPass();
-    selectedAnswer = '';
-    numberInput = '';
-    // Smooth scroll to top to show results
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-8 transition-all duration-500 {isQuestionFading ? 'fade-out' : 'fade-in'}">
@@ -132,13 +124,6 @@
       Svar
     </button>
 
-    <button
-      on:click={handlePass}
-      class="w-full bg-gray-500 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
-    >
-      <SkipForward class="h-4 w-4" />
-      Pass
-    </button>
 
     {#if hasDoubleOption && currentTeam === 2 && onChooseNewQuestion}
       <button
