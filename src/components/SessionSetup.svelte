@@ -34,9 +34,179 @@
       <div class="relative overflow-hidden rounded-xl p-4 mb-4" style="background-color: var(--brand-dark);">
         <!-- Animated yellow circles background -->
         <div class="absolute inset-0">
-          {#each Array(15) as _, i}
+          {#each Array(20) as _, i}
             <div 
-              class="absolute w-2 h-2 bg-yellow-300 rounded-full animate-pulse"
+              class="absolute w-3 h-3 rounded-full animate-pulse"
+              style="background-color: #fde047;
+                     left: {Math.random() * 100}%;
+                     top: {Math.random() * 100}%;
+                     animation-delay: {Math.random() * 3}s;
+                     animation-duration: {2 + Math.random() * 2}s;"
+            ></div>
+          {/each}
+          {#each Array(12) as _, i}
+            <div 
+              class="absolute w-2 h-2 rounded-full star-twinkle"
+              style="background-color: #facc15;
+                     left: {Math.random() * 100}%;
+                     top: {Math.random() * 100}%;
+                     animation-delay: {Math.random() * 4}s;"
+            ></div>
+          {/each}
+          {#each Array(8) as _, i}
+            <div 
+              class="absolute w-4 h-4 rounded-full star-swirl opacity-70"
+              style="background-color: #eab308;
+                     left: {Math.random() * 90}%;
+                     top: {Math.random() * 90}%;
+                     animation-delay: {Math.random() * 6}s;"
+            ></div>
+          {/each}
+        </div>
+        
+        <!-- Header content with logo left and text right -->
+        <div class="relative z-10 flex items-center gap-4">
+          <!-- Logo on the left -->
+          <div class="flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="99.866" height="36.914" viewBox="0 0 99.866 36.914" class="max-w-[50px] max-h-[50px] w-auto h-auto">
+              <g id="Group_194" data-name="Group 194" transform="translate(-385.865 -654.357)">
+                <path id="icon-pålogget" d="M19.045,4.281A14.764,14.764,0,1,0,33.809,19.045,14.764,14.764,0,0,0,19.045,4.281Zm0-3.281A18.045,18.045,0,1,0,37.09,19.045,18.045,18.045,0,0,0,19.045,1Zm0,27.888A9.843,9.843,0,0,1,9.2,19.045H28.888A9.843,9.843,0,0,1,19.045,28.888Zm5.684-6.562H13.361a6.564,6.564,0,0,0,11.368,0Z" transform="translate(384.865 654.181)" fill="#fff" fill-rule="evenodd"/>
+                <g id="Group_192" data-name="Group 192" transform="translate(423.624 661.188)">
+                  <path id="Subtraction_3" data-name="Subtraction 3" d="M13.095,27.945H6.087L0,2.761H0c.062-.018.636-.187,1.544-.431.88-.236,2.264-.593,3.855-.949C7.188.98,8.868.661,10.395.431A34.29,34.29,0,0,1,15.36,0a15.35,15.35,0,0,1,1.687.085,8.246,8.246,0,0,1,1.431.276,11.8,11.8,0,0,1,2.2.914,12.353,12.353,0,0,1,2.059,1.389,11.347,11.347,0,0,1,1.751,1.819,9.828,9.828,0,0,1,1.278,2.2,8.859,8.859,0,0,1,.66,3.982,10.045,10.045,0,0,1-.407,2.235,12.61,12.61,0,0,1-1,2.371,14.3,14.3,0,0,1-1.5,2.253,12.952,12.952,0,0,1-5.249,3.847,14.253,14.253,0,0,1-3.108.855,12.251,12.251,0,0,1-1.856.158h0c-.134,0-.209,0-.209,0v5.562ZM12.268,7.29a14.168,14.168,0,0,0-2.035.155c-.515.076-.85.154-.854.155a2.5,2.5,0,0,1,.795.775,6.056,6.056,0,0,1,.621,1.209,16.1,16.1,0,0,1,.8,3.058c.105.6.253,1.573.36,2.807.064.74.083,1.225.083,1.23a10.056,10.056,0,0,0,.982-.34c.339-.135.671-.284.987-.444a10.232,10.232,0,0,0,1.1-.643,6.143,6.143,0,0,0,1.915-1.935A3.983,3.983,0,0,0,17.52,12a3.926,3.926,0,0,0,.059-.751,4.43,4.43,0,0,0-.092-.816,3.827,3.827,0,0,0-.291-.878,3.316,3.316,0,0,0-.453-.7,3.445,3.445,0,0,0-.586-.549,4.114,4.114,0,0,0-.689-.41,6.011,6.011,0,0,0-1.57-.473A9.846,9.846,0,0,0,12.268,7.29Z" transform="matrix(0.995, 0.105, -0.105, 0.995, 40.354, 0.321)" fill="#fff" opacity="0.999"/>
+                  <path id="Path_1850" data-name="Path 1850" d="M2.351,4.954H1.326V.8H0V0H3.677V.8H2.351Zm2.868.077A1.622,1.622,0,0,1,3.37,3.209a2.486,2.486,0,0,1,.2-1.033,1.535,1.535,0,0,1,.576-.68,1.636,1.636,0,0,1,.9-.241,1.48,1.48,0,0,1,1.238.537A2.245,2.245,0,0,1,6.6,3.419H4.368a.937.937,0,0,0,.286.7,1.248,1.248,0,0,0,.754.185,2.518,2.518,0,0,0,.527-.056A4.964,4.964,0,0,0,6.468,4.1L6.4,4.786a2.9,2.9,0,0,1-.541.181A2.931,2.931,0,0,1,5.219,5.03ZM5.072,1.947a.609.609,0,0,0-.5.209,1.258,1.258,0,0,0-.216.691L5.7,2.84a1.194,1.194,0,0,0-.153-.663A.53.53,0,0,0,5.072,1.947ZM10.514,4.3l-.077.621a1.4,1.4,0,0,1-.244.063,1.713,1.713,0,0,1-.307.028q-.628,0-.754-.488a1.276,1.276,0,0,1-.419.359,1.323,1.323,0,0,1-.635.136.99.99,0,0,1-.788-.3,1.043,1.043,0,0,1-.258-.708.991.991,0,0,1,.321-.75,1.683,1.683,0,0,1,1-.373l.747-.07V2.714a.757.757,0,0,0-.143-.5.772.772,0,0,0-.59-.167,3.136,3.136,0,0,0-.565.052,4.1,4.1,0,0,0-.607.164l.1-.788a3.664,3.664,0,0,1,.572-.157,3.456,3.456,0,0,1,.656-.059A1.7,1.7,0,0,1,9.7,1.594a1.252,1.252,0,0,1,.363.987l-.021,1.381q0,.363.286.363A.8.8,0,0,0,10.514,4.3ZM8,3.893q0,.44.467.44A.991.991,0,0,0,8.8,4.277.937.937,0,0,0,9.1,4.1L9.1,3.412H8.679a.9.9,0,0,0-.527.115A.432.432,0,0,0,8,3.893Zm3,1.06V1.4l.977-.147v.481a1.816,1.816,0,0,1,.527-.356,1.493,1.493,0,0,1,.6-.119.9.9,0,0,1,.935.565A2,2,0,0,1,14.6,1.4a1.452,1.452,0,0,1,.652-.147.972.972,0,0,1,.792.314,1.5,1.5,0,0,1,.262.97V4.954h-.984V2.763a.757.757,0,0,0-.122-.474.465.465,0,0,0-.387-.153,1.168,1.168,0,0,0-.328.049,2,2,0,0,0-.335.133q.007.1.007.223V4.954h-.984V2.763q0-.628-.516-.628a1.45,1.45,0,0,0-.677.188v2.63Z" transform="translate(421.313 658.025) rotate(-13)" fill="#fff"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+          
+          <!-- Text content on the right -->
+          <div class="flex-1 flex flex-col justify-center">
+            <h1 class="text-xl font-bold text-white mb-1 animate-bounce-subtle">
+              🎯 POP-quiz
+            </h1>
+            <p class="text-sm text-white mb-1 font-medium animate-fade-in">
+              📺 Presentert av NRKs beste team
+            </p>
+            <p class="text-lg font-bold text-yellow-300 animate-glow">
+              ⭐ Team POP ⭐
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session setup card -->
+    <div class="bg-white rounded-2xl shadow-2xl p-8">
+    <div class="flex mb-6 bg-gray-100 rounded-lg p-1">
+      <button
+        on:click={() => mode = 'create'}
+        class="flex-1 py-3 px-4 rounded-md font-medium transition-all {mode === 'create'
+          ? 'bg-brand-dark text-white shadow-md'
+          : 'text-gray-600 hover:text-brand-dark'}"
+      >
+        Nytt spill
+      </button>
+      <button
+        on:click={() => mode = 'load'}
+        class="flex-1 py-3 px-4 rounded-md font-medium transition-all {mode === 'load'
+          ? 'bg-brand-dark text-white shadow-md'
+          : 'text-gray-600 hover:text-brand-dark'}"
+      >
+        Fortsett spill
+      </button>
+    </div>
+
+    {#if mode === 'create'}
+      <div class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">
+            Sesjonsord (skriv ned for å fortsette senere)
+          </label>
+          <div class="flex gap-2">
+            <input
+              type="text"
+              bind:value={wordCombination}
+              class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent text-lg font-mono"
+              placeholder="f.eks. gul bjørn"
+            />
+            <button
+              on:click={generateNew}
+              class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              Nytt
+            </button>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              Navn på Lag 1 (Mørkeblå)
+            </label>
+            <input
+              type="text"
+              bind:value={team1Name}
+              class="w-full px-4 py-3 border-2 border-brand-light rounded-lg focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
+              placeholder="Navn på lag 1"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+              Navn på Lag 2 (Korall)
+            </label>
+            <input
+              type="text"
+              bind:value={team2Name}
+              class="w-full px-4 py-3 border-2 border-accent-light rounded-lg focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
+              placeholder="Navn på lag 2"
+            />
+          </div>
+        </div>
+
+        <button
+          on:click={handleCreateSession}
+          disabled={isLoading || !wordCombination || !team1Name || !team2Name}
+          class="w-full bg-brand-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-lg font-medium text-lg transition-all flex items-center justify-center gap-2"
+        >
+          {#if isLoading}
+            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+          {:else}
+            <Play class="h-5 w-5" />
+            Start Quiz
+          {/if}
+        </button>
+      </div>
+    {:else}
+      <div class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">
+            Skriv inn sesjonsord
+          </label>
+          <input
+            type="text"
+            bind:value={loadWordCombination}
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent text-lg font-mono"
+            placeholder="f.eks. gul bjørn"
+          />
+        </div>
+
+        <button
+          on:click={handleLoadSession}
+          disabled={isLoading || !loadWordCombination}
+          class="w-full bg-accent-dark hover:bg-opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-lg font-medium text-lg transition-all flex items-center justify-center gap-2"
+        >
+          {#if isLoading}
+            <div class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></div>
+          {:else}
+            <Search class="h-5 w-5" />
+            Last inn spill
+          {/if}
+        </button>
+      </div>
+    {/if}
+    </div>
+  </div>
+</div>
               style="
                 left: {Math.random() * 100}%;
                 top: {Math.random() * 100}%;
