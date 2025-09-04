@@ -7,7 +7,7 @@
   width="1397.601" 
   height="1459.031" 
   viewBox="0 0 1397.601 1459.031"
-  class={className}
+  class="{className} text-brand-dark"
 >
   <g transform="translate(-786.199 -296)">
     <path 
