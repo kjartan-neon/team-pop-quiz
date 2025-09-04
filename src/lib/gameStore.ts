@@ -98,6 +98,18 @@ function createGameStore() {
 
         if (questions && questions.length > 0) {
           const randomQuestion = questions[0];
+          
+          // Shuffle multiple choice options if it's a multiple choice question
+          if (randomQuestion.question_type === 'multiple_choice' && randomQuestion.options) {
+            const shuffledOptions = [...randomQuestion.options];
+            // Fisher-Yates shuffle algorithm
+            for (let i = shuffledOptions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+            }
+            randomQuestion.options = shuffledOptions;
+          }
+          
           update(state => ({
             ...state,
             currentQuestion: randomQuestion,
