@@ -1,0 +1,381 @@
+/*
+  # Add 200 Norwegian Quiz Questions
+
+  1. New Data
+    - 200 new quiz questions in Norwegian covering:
+      - NRK (Norwegian Broadcasting Corporation)
+      - World knowledge
+      - Science
+      - Dinosaurs
+      - Pop songs from the last 40 years
+    - Mix of multiple choice and number questions
+    - Various difficulty levels
+
+  2. Categories Added
+    - NRK
+    - Verden
+    - Vitenskap
+    - Dinosaurer
+    - Popmusikk
+*/
+
+INSERT INTO quiz_questions (question_text, question_type, options, correct_answer, category, difficulty) VALUES
+
+-- NRK Questions
+('Hvilket år startet NRK sine TV-sendinger?', 'number', NULL, '1960', 'NRK', 'medium'),
+('Hva heter NRKs hovedkontor i Oslo?', 'multiple_choice', '["Marienlyst", "Tyholt", "Bjørnsletta", "Youngstorget"]', 'Marienlyst', 'NRK', 'medium'),
+('Hvilket program ledet Arne Scheie i mange år?', 'multiple_choice', '["Dagsrevyen", "Lørdagsrevyen", "Kveldsnytt", "Morgenrevyen"]', 'Dagsrevyen', 'NRK', 'easy'),
+('Hva heter NRKs barnekanal?', 'multiple_choice', '["NRK Super", "NRK Barn", "NRK Junior", "NRK Kids"]', 'NRK Super', 'NRK', 'easy'),
+('Hvilket år ble NRK P3 etablert?', 'number', NULL, '1993', 'NRK', 'hard'),
+('Hva heter programmet der Anne Lindmo er programleder?', 'multiple_choice', '["Lindmo", "Anne & Co", "Fredagskveld", "Talk med Anne"]', 'Lindmo', 'NRK', 'easy'),
+('Hvilket NRK-program handler om å bygge drømmehytta?', 'multiple_choice', '["Hytta", "Drømmehytta", "Hver gang vi møtes", "Tid for hjem"]', 'Hver gang vi møtes', 'NRK', 'medium'),
+('Hva heter NRKs nyhetskanal?', 'multiple_choice', '["NRK24", "NRK Nyheter", "NRK News", "NRK Info"]', 'NRK24', 'NRK', 'easy'),
+('Hvilket år ble NRK stiftet?', 'number', NULL, '1933', 'NRK', 'medium'),
+('Hva heter programmet der kjendiser bor sammen på gård?', 'multiple_choice', '["Farmen", "Gården", "Bondegården", "Landet"]', 'Farmen', 'NRK', 'easy'),
+
+-- World Knowledge
+('Hvor mange land er det i verden?', 'number', NULL, '195', 'Verden', 'medium'),
+('Hva er hovedstaden i Australia?', 'multiple_choice', '["Sydney", "Melbourne", "Canberra", "Perth"]', 'Canberra', 'Verden', 'medium'),
+('Hvilket land har flest innbyggere?', 'multiple_choice', '["Kina", "India", "USA", "Indonesia"]', 'India', 'Verden', 'easy'),
+('Hva heter den lengste elva i verden?', 'multiple_choice', '["Nilen", "Amazon", "Yangtze", "Mississippi"]', 'Nilen', 'Verden', 'medium'),
+('Hvor mange kontinenter er det?', 'number', NULL, '7', 'Verden', 'easy'),
+('Hva er hovedstaden i Canada?', 'multiple_choice', '["Toronto", "Vancouver", "Ottawa", "Montreal"]', 'Ottawa', 'Verden', 'medium'),
+('Hvilket land har størst areal?', 'multiple_choice', '["Russland", "Canada", "USA", "Kina"]', 'Russland', 'Verden', 'easy'),
+('Hva heter det høyeste fjellet i verden?', 'multiple_choice', '["Mount Everest", "K2", "Kangchenjunga", "Lhotse"]', 'Mount Everest', 'Verden', 'easy'),
+('Hvor mange tidssoner er det i verden?', 'number', NULL, '24', 'Verden', 'medium'),
+('Hva er hovedstaden i Brasil?', 'multiple_choice', '["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"]', 'Brasília', 'Verden', 'medium'),
+('Hvilket hav er størst?', 'multiple_choice', '["Stillehavet", "Atlanterhavet", "Indiahavet", "Nordishavet"]', 'Stillehavet', 'Verden', 'easy'),
+('Hva heter ørkenen i Afrika?', 'multiple_choice', '["Sahara", "Kalahari", "Namib", "Gobi"]', 'Sahara', 'Verden', 'easy'),
+('Hvor mange språk snakkes i verden?', 'number', NULL, '7000', 'Verden', 'hard'),
+('Hva er hovedstaden i Egypt?', 'multiple_choice', '["Kairo", "Alexandria", "Giza", "Luxor"]', 'Kairo', 'Verden', 'medium'),
+('Hvilket land ligger mellom Norge og Finland?', 'multiple_choice', '["Sverige", "Danmark", "Russland", "Estland"]', 'Sverige', 'Verden', 'easy'),
+('Hva heter den største øya i verden?', 'multiple_choice', '["Grønland", "Australia", "Madagaskar", "Borneo"]', 'Grønland', 'Verden', 'medium'),
+('Hvor mange land grenser til Norge?', 'number', NULL, '3', 'Verden', 'easy'),
+('Hva er hovedstaden i Japan?', 'multiple_choice', '["Tokyo", "Osaka", "Kyoto", "Hiroshima"]', 'Tokyo', 'Verden', 'easy'),
+('Hvilket land har flest øyer?', 'multiple_choice', '["Norge", "Finland", "Sverige", "Canada"]', 'Finland', 'Verden', 'hard'),
+('Hva heter den dypeste delen av havet?', 'multiple_choice', '["Marianergropa", "Puerto Rico-gropa", "Java-gropa", "Tonga-gropa"]', 'Marianergropa', 'Verden', 'hard'),
+
+-- Science Questions
+('Hva er det kjemiske symbolet for gull?', 'multiple_choice', '["Au", "Ag", "Fe", "Cu"]', 'Au', 'Vitenskap', 'medium'),
+('Hvor mange planeter er det i solsystemet?', 'number', NULL, '8', 'Vitenskap', 'easy'),
+('Hva er lysets hastighet i vakuum?', 'number', NULL, '300000000', 'Vitenskap', 'hard'),
+('Hvilken planet er nærmest sola?', 'multiple_choice', '["Merkur", "Venus", "Jorda", "Mars"]', 'Merkur', 'Vitenskap', 'easy'),
+('Hva er det kjemiske symbolet for vann?', 'multiple_choice', '["H2O", "CO2", "O2", "H2"]', 'H2O', 'Vitenskap', 'easy'),
+('Hvor mange bein har en edderkopp?', 'number', NULL, '8', 'Vitenskap', 'easy'),
+('Hva er den største planeten i solsystemet?', 'multiple_choice', '["Jupiter", "Saturn", "Neptun", "Uranus"]', 'Jupiter', 'Vitenskap', 'easy'),
+('Hvilken gass utgjør mest av atmosfæren?', 'multiple_choice', '["Nitrogen", "Oksygen", "Karbondioksid", "Argon"]', 'Nitrogen', 'Vitenskap', 'medium'),
+('Hva er det kjemiske symbolet for jern?', 'multiple_choice', '["Fe", "Ir", "In", "I"]', 'Fe', 'Vitenskap', 'medium'),
+('Hvor mange kromosomer har et menneske?', 'number', NULL, '46', 'Vitenskap', 'medium'),
+('Hva er den minste partikkelen i et atom?', 'multiple_choice', '["Kvark", "Elektron", "Proton", "Nøytron"]', 'Kvark', 'Vitenskap', 'hard'),
+('Hvilken planet har flest måner?', 'multiple_choice', '["Saturn", "Jupiter", "Uranus", "Neptun"]', 'Saturn', 'Vitenskap', 'medium'),
+('Hva er kokepunktet for vann?', 'number', NULL, '100', 'Vitenskap', 'easy'),
+('Hvilken vitenskapsmann utviklet relativitetsteorien?', 'multiple_choice', '["Einstein", "Newton", "Galilei", "Darwin"]', 'Einstein', 'Vitenskap', 'easy'),
+('Hvor mange hjerter har en blekksprut?', 'number', NULL, '3', 'Vitenskap', 'medium'),
+('Hva er det hardeste naturlige materialet?', 'multiple_choice', '["Diamant", "Kvarts", "Stål", "Granitt"]', 'Diamant', 'Vitenskap', 'easy'),
+('Hvilken planet er kjent som den røde planeten?', 'multiple_choice', '["Mars", "Venus", "Jupiter", "Saturn"]', 'Mars', 'Vitenskap', 'easy'),
+('Hva er den kjemiske formelen for salt?', 'multiple_choice', '["NaCl", "KCl", "CaCl2", "MgCl2"]', 'NaCl', 'Vitenskap', 'medium'),
+('Hvor mange sekunder er det i en time?', 'number', NULL, '3600', 'Vitenskap', 'easy'),
+('Hvilken gass produserer planter under fotosyntese?', 'multiple_choice', '["Oksygen", "Karbondioksid", "Nitrogen", "Hydrogen"]', 'Oksygen', 'Vitenskap', 'easy'),
+
+-- Dinosaur Questions
+('Hvilket tidsrom levde dinosaurene i?', 'multiple_choice', '["Mesozoikum", "Paleozoikum", "Kenozoikum", "Prekambrium"]', 'Mesozoikum', 'Dinosaurer', 'medium'),
+('Hva betyr "Tyrannosaurus Rex"?', 'multiple_choice', '["Tyrann-øgle-konge", "Stor-øgle-jeger", "Frykt-øgle-leder", "Sterk-øgle-kriger"]', 'Tyrann-øgle-konge', 'Dinosaurer', 'medium'),
+('Hvor mange år siden døde dinosaurene ut?', 'number', NULL, '66000000', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde den lengste halsen?', 'multiple_choice', '["Brachiosaurus", "Diplodocus", "Apatosaurus", "Camarasaurus"]', 'Diplodocus', 'Dinosaurer', 'medium'),
+('Hva spiste Triceratops?', 'multiple_choice', '["Planter", "Kjøtt", "Fisk", "Insekter"]', 'Planter', 'Dinosaurer', 'easy'),
+('Hvilken dinosaur hadde fjær?', 'multiple_choice', '["Archaeopteryx", "T-Rex", "Triceratops", "Stegosaurus"]', 'Archaeopteryx', 'Dinosaurer', 'medium'),
+('Hvor lang kunne en T-Rex bli?', 'number', NULL, '12', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde pigger på ryggen?', 'multiple_choice', '["Stegosaurus", "Triceratops", "Brachiosaurus", "Velociraptor"]', 'Stegosaurus', 'Dinosaurer', 'easy'),
+('Hva betyr ordet "dinosaur"?', 'multiple_choice', '["Fryktelig øgle", "Stor øgle", "Gammel øgle", "Sterk øgle"]', 'Fryktelig øgle', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur var minst?', 'multiple_choice', '["Microraptor", "Compsognathus", "Mussaurus", "Fruitadens"]', 'Microraptor', 'Dinosaurer', 'hard'),
+('Hvor mange horn hadde Triceratops?', 'number', NULL, '3', 'Dinosaurer', 'easy'),
+('Hvilken dinosaur kunne fly?', 'multiple_choice', '["Pteranodon", "Velociraptor", "Allosaurus", "Ankylosaurus"]', 'Pteranodon', 'Dinosaurer', 'medium'),
+('Hva spiste Velociraptor?', 'multiple_choice', '["Kjøtt", "Planter", "Fisk", "Frukt"]', 'Kjøtt', 'Dinosaurer', 'easy'),
+('Hvor tung kunne en Brachiosaurus bli?', 'number', NULL, '80', 'Dinosaurer', 'hard'),
+('Hvilken dinosaur hadde den største hjernen?', 'multiple_choice', '["Troodon", "T-Rex", "Velociraptor", "Deinonychus"]', 'Troodon', 'Dinosaurer', 'hard'),
+('Hva kalles studiet av dinosaurer?', 'multiple_choice', '["Paleontologi", "Arkeologi", "Geologi", "Biologi"]', 'Paleontologi', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde panseret kropp?', 'multiple_choice', '["Ankylosaurus", "Stegosaurus", "Triceratops", "Parasaurolophus"]', 'Ankylosaurus', 'Dinosaurer', 'medium'),
+('Hvor mange tenner hadde en T-Rex?', 'number', NULL, '60', 'Dinosaurer', 'hard'),
+('Hvilken dinosaur kunne lage lyder med sin kam?', 'multiple_choice', '["Parasaurolophus", "Triceratops", "Stegosaurus", "Diplodocus"]', 'Parasaurolophus', 'Dinosaurer', 'medium'),
+('Hva var den største kjøttetende dinosauren?', 'multiple_choice', '["Spinosaurus", "T-Rex", "Giganotosaurus", "Carcharodontosaurus"]', 'Spinosaurus', 'Dinosaurer', 'hard'),
+
+-- Pop Music Questions (Last 40 years)
+('Hvilket år kom "Billie Jean" av Michael Jackson?', 'number', NULL, '1983', 'Popmusikk', 'medium'),
+('Hvem sang "Like a Virgin"?', 'multiple_choice', '["Madonna", "Whitney Houston", "Cyndi Lauper", "Tina Turner"]', 'Madonna', 'Popmusikk', 'easy'),
+('Hvilket band sang "Bohemian Rhapsody"?', 'multiple_choice', '["Queen", "The Beatles", "Led Zeppelin", "Pink Floyd"]', 'Queen', 'Popmusikk', 'easy'),
+('Hvilket år kom "Thriller" av Michael Jackson?', 'number', NULL, '1982', 'Popmusikk', 'medium'),
+('Hvem sang "I Will Always Love You"?', 'multiple_choice', '["Whitney Houston", "Mariah Carey", "Celine Dion", "Tina Turner"]', 'Whitney Houston', 'Popmusikk', 'easy'),
+('Hvilket band sang "Sweet Child O Mine"?', 'multiple_choice', '["Guns N Roses", "Bon Jovi", "Def Leppard", "Aerosmith"]', 'Guns N Roses', 'Popmusikk', 'medium'),
+('Hvem sang "Material Girl"?', 'multiple_choice', '["Madonna", "Cyndi Lauper", "Pat Benatar", "Joan Jett"]', 'Madonna', 'Popmusikk', 'easy'),
+('Hvilket år kom "Purple Rain" av Prince?', 'number', NULL, '1984', 'Popmusikk', 'medium'),
+('Hvem sang "Total Eclipse of the Heart"?', 'multiple_choice', '["Bonnie Tyler", "Pat Benatar", "Heart", "Fleetwood Mac"]', 'Bonnie Tyler', 'Popmusikk', 'medium'),
+('Hvilket band sang "Livin on a Prayer"?', 'multiple_choice', '["Bon Jovi", "Journey", "Foreigner", "REO Speedwagon"]', 'Bon Jovi', 'Popmusikk', 'easy'),
+('Hvem sang "Girls Just Want to Have Fun"?', 'multiple_choice', '["Cyndi Lauper", "Madonna", "Pat Benatar", "Blondie"]', 'Cyndi Lauper', 'Popmusikk', 'easy'),
+('Hvilket år kom "Smells Like Teen Spirit" av Nirvana?', 'number', NULL, '1991', 'Popmusikk', 'medium'),
+('Hvem sang "I Want It That Way"?', 'multiple_choice', '["Backstreet Boys", "NSYNC", "98 Degrees", "Boyz II Men"]', 'Backstreet Boys', 'Popmusikk', 'easy'),
+('Hvilket band sang "Wonderwall"?', 'multiple_choice', '["Oasis", "Blur", "Radiohead", "Coldplay"]', 'Oasis', 'Popmusikk', 'medium'),
+('Hvem sang "My Heart Will Go On"?', 'multiple_choice', '["Celine Dion", "Whitney Houston", "Mariah Carey", "Toni Braxton"]', 'Celine Dion', 'Popmusikk', 'easy'),
+('Hvilket år kom "Smells Like Teen Spirit"?', 'number', NULL, '1991', 'Popmusikk', 'medium'),
+('Hvem sang "Vogue"?', 'multiple_choice', '["Madonna", "Janet Jackson", "Paula Abdul", "Whitney Houston"]', 'Madonna', 'Popmusikk', 'medium'),
+('Hvilket band sang "Dont Stop Believin"?', 'multiple_choice', '["Journey", "Foreigner", "Boston", "Kansas"]', 'Journey', 'Popmusikk', 'easy'),
+('Hvem sang "I Will Survive"?', 'multiple_choice', '["Gloria Gaynor", "Diana Ross", "Donna Summer", "Chaka Khan"]', 'Gloria Gaynor', 'Popmusikk', 'medium'),
+('Hvilket år kom "Billie Jean"?', 'number', NULL, '1983', 'Popmusikk', 'medium'),
+
+-- More NRK Questions
+('Hva heter NRKs radioserie om Elling?', 'multiple_choice', '["Elling", "Brødrene Dal", "Radioteater", "Hørespill"]', 'Elling', 'NRK', 'medium'),
+('Hvilket program handler om norsk musikk?', 'multiple_choice', '["Hver gang vi møtes", "The Voice", "Idol", "Melodi Grand Prix"]', 'Hver gang vi møtes', 'NRK', 'easy'),
+('Hva heter NRKs dokumentarserie om norsk natur?', 'multiple_choice', '["Vill natur", "Naturens år", "Villmark", "Norge rundt"]', 'Vill natur', 'NRK', 'medium'),
+('Hvilket program ledet Petter Schjerven?', 'multiple_choice', '["Nytt på nytt", "Torsdag kveld fra Nydalen", "Side om side", "Bokprogrammet"]', 'Nytt på nytt', 'NRK', 'medium'),
+('Hva heter NRKs morgensending?', 'multiple_choice', '["God morgen Norge", "Morgenrevyen", "Frokost-TV", "Morgensending"]', 'God morgen Norge', 'NRK', 'easy'),
+('Hvilket år startet Melodi Grand Prix?', 'number', NULL, '1960', 'NRK', 'hard'),
+('Hva heter programmet der Jon Almaas er programleder?', 'multiple_choice', '["Torsdag kveld fra Nydalen", "Nytt på nytt", "Lindmo", "Skavlan"]', 'Torsdag kveld fra Nydalen', 'NRK', 'medium'),
+('Hvilket program handler om å reise rundt i Norge?', 'multiple_choice', '["Norge rundt", "Reiseradioen", "Ut i naturen", "Norgesglasset"]', 'Norge rundt', 'NRK', 'easy'),
+('Hva heter NRKs kokeprogram?', 'multiple_choice', '["Kokkekamp", "Masterchef", "4-stjerners middag", "Kokkelørdag"]', 'Kokkekamp', 'NRK', 'medium'),
+('Hvilket program ledet Knut Borge?', 'multiple_choice', '["Lørdagsrevyen", "Dagsrevyen", "Kveldsnytt", "Morgenrevyen"]', 'Lørdagsrevyen', 'NRK', 'medium'),
+
+-- More World Knowledge
+('Hva er hovedstaden i Thailand?', 'multiple_choice', '["Bangkok", "Phuket", "Chiang Mai", "Pattaya"]', 'Bangkok', 'Verden', 'medium'),
+('Hvilket land har flest vulkaner?', 'multiple_choice', '["Indonesia", "Japan", "Island", "Filippinene"]', 'Indonesia', 'Verden', 'hard'),
+('Hva heter den største ørkenen i Asia?', 'multiple_choice', '["Gobi", "Taklamakan", "Karakum", "Kyzylkum"]', 'Gobi', 'Verden', 'medium'),
+('Hvor mange land er det i Afrika?', 'number', NULL, '54', 'Verden', 'medium'),
+('Hva er hovedstaden i Argentina?', 'multiple_choice', '["Buenos Aires", "Córdoba", "Rosario", "Mendoza"]', 'Buenos Aires', 'Verden', 'medium'),
+('Hvilket land produserer mest kaffe?', 'multiple_choice', '["Brasil", "Vietnam", "Colombia", "Indonesia"]', 'Brasil', 'Verden', 'medium'),
+('Hva heter den største innsjøen i verden?', 'multiple_choice', '["Kaspihavet", "Øvre innsjø", "Viktoriasøen", "Huron"]', 'Kaspihavet', 'Verden', 'medium'),
+('Hvor mange land grenser til Tyskland?', 'number', NULL, '9', 'Verden', 'hard'),
+('Hva er hovedstaden i Sør-Korea?', 'multiple_choice', '["Seoul", "Busan", "Incheon", "Daegu"]', 'Seoul', 'Verden', 'medium'),
+('Hvilket land har flest UNESCO-verdensarvsteder?', 'multiple_choice', '["Italia", "Kina", "Spania", "Frankrike"]', 'Italia', 'Verden', 'hard'),
+('Hva heter den lengste fjellkjeden i verden?', 'multiple_choice', '["Andes", "Himalaya", "Rocky Mountains", "Alpene"]', 'Andes', 'Verden', 'medium'),
+('Hvor mange land er det i Europa?', 'number', NULL, '44', 'Verden', 'medium'),
+
+-- More Science Questions
+('Hva er den kjemiske formelen for metan?', 'multiple_choice', '["CH4", "CO2", "H2O", "NH3"]', 'CH4', 'Vitenskap', 'medium'),
+('Hvor mange ribben har et menneske?', 'number', NULL, '24', 'Vitenskap', 'medium'),
+('Hvilken planet har den korteste dagen?', 'multiple_choice', '["Jupiter", "Mars", "Venus", "Saturn"]', 'Jupiter', 'Vitenskap', 'hard'),
+('Hva er den største organet i menneskekroppen?', 'multiple_choice', '["Huden", "Leveren", "Lungene", "Hjernen"]', 'Huden', 'Vitenskap', 'medium'),
+('Hvor mange grader er det i en sirkel?', 'number', NULL, '360', 'Vitenskap', 'easy'),
+('Hvilken gass er mest i sola?', 'multiple_choice', '["Hydrogen", "Helium", "Oksygen", "Nitrogen"]', 'Hydrogen', 'Vitenskap', 'medium'),
+('Hva er den kjemiske formelen for sukker?', 'multiple_choice', '["C6H12O6", "C12H22O11", "C2H6O", "C6H6"]', 'C6H12O6', 'Vitenskap', 'hard'),
+('Hvor mange kammer har et fuglelhjerte?', 'number', NULL, '4', 'Vitenskap', 'medium'),
+('Hvilken planet roterer baklengs?', 'multiple_choice', '["Venus", "Uranus", "Mars", "Neptun"]', 'Venus', 'Vitenskap', 'hard'),
+('Hva er den raskeste dyret på land?', 'multiple_choice', '["Gepard", "Løve", "Antilope", "Hest"]', 'Gepard', 'Vitenskap', 'easy'),
+
+-- More Pop Music Questions
+('Hvem sang "Careless Whisper"?', 'multiple_choice', '["George Michael", "Elton John", "Phil Collins", "Boy George"]', 'George Michael', 'Popmusikk', 'medium'),
+('Hvilket år kom "Take On Me" av a-ha?', 'number', NULL, '1985', 'Popmusikk', 'medium'),
+('Hvem sang "Tainted Love"?', 'multiple_choice', '["Soft Cell", "Depeche Mode", "New Order", "Duran Duran"]', 'Soft Cell', 'Popmusikk', 'medium'),
+('Hvilket band sang "Eye of the Tiger"?', 'multiple_choice', '["Survivor", "Journey", "Foreigner", "Boston"]', 'Survivor', 'Popmusikk', 'medium'),
+('Hvem sang "Flashdance... What a Feeling"?', 'multiple_choice', '["Irene Cara", "Laura Branigan", "Pat Benatar", "Kim Carnes"]', 'Irene Cara', 'Popmusikk', 'medium'),
+('Hvilket år kom "Sweet Dreams" av Eurythmics?', 'number', NULL, '1983', 'Popmusikk', 'medium'),
+('Hvem sang "Footloose"?', 'multiple_choice', '["Kenny Loggins", "Huey Lewis", "Christopher Cross", "Phil Collins"]', 'Kenny Loggins', 'Popmusikk', 'medium'),
+('Hvilket band sang "Dont You (Forget About Me)"?', 'multiple_choice', '["Simple Minds", "Tears for Fears", "Duran Duran", "INXS"]', 'Simple Minds', 'Popmusikk', 'medium'),
+('Hvem sang "Gloria"?', 'multiple_choice', '["Laura Branigan", "Pat Benatar", "Joan Jett", "Heart"]', 'Laura Branigan', 'Popmusikk', 'medium'),
+('Hvilket år kom "Like a Prayer" av Madonna?', 'number', NULL, '1989', 'Popmusikk', 'medium'),
+('Hvem sang "Maniac"?', 'multiple_choice', '["Michael Sembello", "Kenny Loggins", "Irene Cara", "Giorgio Moroder"]', 'Michael Sembello', 'Popmusikk', 'hard'),
+('Hvilket band sang "Hungry Like the Wolf"?', 'multiple_choice', '["Duran Duran", "Spandau Ballet", "Culture Club", "Wham!"]', 'Duran Duran', 'Popmusikk', 'medium'),
+('Hvem sang "Time After Time"?', 'multiple_choice', '["Cyndi Lauper", "Madonna", "Pat Benatar", "Heart"]', 'Cyndi Lauper', 'Popmusikk', 'medium'),
+('Hvilket år kom "Beat It" av Michael Jackson?', 'number', NULL, '1983', 'Popmusikk', 'medium'),
+('Hvem sang "What a Feeling"?', 'multiple_choice', '["Irene Cara", "Laura Branigan", "Pat Benatar", "Joan Jett"]', 'Irene Cara', 'Popmusikk', 'medium'),
+
+-- More Dinosaur Questions
+('Hvilken periode levde T-Rex i?', 'multiple_choice', '["Kritt", "Jura", "Trias", "Perm"]', 'Kritt', 'Dinosaurer', 'medium'),
+('Hva spiste Brachiosaurus?', 'multiple_choice', '["Planter", "Kjøtt", "Fisk", "Alt"]', 'Planter', 'Dinosaurer', 'easy'),
+('Hvor mange fingre hadde T-Rex?', 'number', NULL, '2', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde den lengste svansen?', 'multiple_choice', '["Diplodocus", "Apatosaurus", "Brachiosaurus", "Camarasaurus"]', 'Diplodocus', 'Dinosaurer', 'medium'),
+('Hva betyr "Velociraptor"?', 'multiple_choice', '["Rask røver", "Hurtig jeger", "Kvikk kriger", "Snar slakter"]', 'Rask røver', 'Dinosaurer', 'medium'),
+('Hvor høy kunne en Brachiosaurus bli?', 'number', NULL, '13', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde den største kloa?', 'multiple_choice', '["Therizinosaurus", "Velociraptor", "Deinonychus", "Utahraptor"]', 'Therizinosaurus', 'Dinosaurer', 'hard'),
+('Hva kalles dinosaurer som spiste både planter og kjøtt?', 'multiple_choice', '["Omnivore", "Herbivore", "Carnivore", "Insektivore"]', 'Omnivore', 'Dinosaurer', 'medium'),
+('Hvor lang kunne en Diplodocus bli?', 'number', NULL, '27', 'Dinosaurer', 'medium'),
+('Hvilken dinosaur hadde den tykkeste skallen?', 'multiple_choice', '["Pachycephalosaurus", "Triceratops", "Stegosaurus", "Ankylosaurus"]', 'Pachycephalosaurus', 'Dinosaurer', 'hard'),
+
+-- More World Knowledge
+('Hva er hovedstaden i Chile?', 'multiple_choice', '["Santiago", "Valparaíso", "Concepción", "La Serena"]', 'Santiago', 'Verden', 'medium'),
+('Hvilket land har flest innsjøer?', 'multiple_choice', '["Canada", "Finland", "Norge", "Sverige"]', 'Canada', 'Verden', 'hard'),
+('Hva heter den største øya i Middelhavet?', 'multiple_choice', '["Sicilia", "Sardinia", "Korsika", "Kypros"]', 'Sicilia', 'Verden', 'medium'),
+('Hvor mange land grenser til Kina?', 'number', NULL, '14', 'Verden', 'hard'),
+('Hva er hovedstaden i Peru?', 'multiple_choice', '["Lima", "Cusco", "Arequipa", "Trujillo"]', 'Lima', 'Verden', 'medium'),
+('Hvilket land har lengst kystlinje?', 'multiple_choice', '["Canada", "Norge", "Indonesia", "Russland"]', 'Canada', 'Verden', 'hard'),
+('Hva heter den største ørkenen i Asia?', 'multiple_choice', '["Gobi", "Taklamakan", "Karakum", "Thar"]', 'Gobi', 'Verden', 'medium'),
+('Hvor mange land er det i Sør-Amerika?', 'number', NULL, '12', 'Verden', 'medium'),
+('Hva er hovedstaden i Marokko?', 'multiple_choice', '["Rabat", "Casablanca", "Marrakech", "Fez"]', 'Rabat', 'Verden', 'hard'),
+('Hvilket land har flest nabospråk?', 'multiple_choice', '["Kina", "Russland", "Brasil", "Tyskland"]', 'Kina', 'Verden', 'hard'),
+
+-- More Science Questions
+('Hva er den kjemiske formelen for ammoniakk?', 'multiple_choice', '["NH3", "NO2", "N2O", "HNO3"]', 'NH3', 'Vitenskap', 'medium'),
+('Hvor mange øyne har en bie?', 'number', NULL, '5', 'Vitenskap', 'hard'),
+('Hvilken planet har den sterkeste gravitasjonen?', 'multiple_choice', '["Jupiter", "Saturn", "Neptun", "Uranus"]', 'Jupiter', 'Vitenskap', 'medium'),
+('Hva er den kjemiske formelen for karbondioksid?', 'multiple_choice', '["CO2", "CO", "C2O", "O2"]', 'CO2', 'Vitenskap', 'easy'),
+('Hvor mange vinger har en flue?', 'number', NULL, '2', 'Vitenskap', 'easy'),
+('Hvilken vitenskapsmann oppdaget penicillin?', 'multiple_choice', '["Alexander Fleming", "Louis Pasteur", "Marie Curie", "Charles Darwin"]', 'Alexander Fleming', 'Vitenskap', 'medium'),
+('Hva er den kjemiske formelen for metanol?', 'multiple_choice', '["CH3OH", "C2H5OH", "C3H7OH", "C4H9OH"]', 'CH3OH', 'Vitenskap', 'hard'),
+('Hvor mange lunger har et menneske?', 'number', NULL, '2', 'Vitenskap', 'easy'),
+('Hvilken planet har den tynneste atmosfæren?', 'multiple_choice', '["Mars", "Venus", "Merkur", "Månen"]', 'Merkur', 'Vitenskap', 'hard'),
+('Hva er den kjemiske formelen for hydrogen peroksid?', 'multiple_choice', '["H2O2", "H2O", "HO2", "H3O"]', 'H2O2', 'Vitenskap', 'hard'),
+
+-- More Pop Music Questions
+('Hvem sang "Karma Chameleon"?', 'multiple_choice', '["Culture Club", "Duran Duran", "Spandau Ballet", "Wham!"]', 'Culture Club', 'Popmusikk', 'medium'),
+('Hvilket år kom "Dancing Queen" av ABBA?', 'number', NULL, '1976', 'Popmusikk', 'medium'),
+('Hvem sang "Alone"?', 'multiple_choice', '["Heart", "Pat Benatar", "Joan Jett", "Fleetwood Mac"]', 'Heart', 'Popmusikk', 'medium'),
+('Hvilket band sang "Toto"?', 'multiple_choice', '["Africa", "Asia", "Boston", "Chicago"]', 'Africa', 'Popmusikk', 'medium'),
+('Hvem sang "Mickey"?', 'multiple_choice', '["Toni Basil", "Cyndi Lauper", "Pat Benatar", "Joan Jett"]', 'Toni Basil', 'Popmusikk', 'hard'),
+('Hvilket år kom "Livin la Vida Loca" av Ricky Martin?', 'number', NULL, '1999', 'Popmusikk', 'medium'),
+('Hvem sang "I Love Rock n Roll"?', 'multiple_choice', '["Joan Jett", "Pat Benatar", "Heart", "Blondie"]', 'Joan Jett', 'Popmusikk', 'medium'),
+('Hvilket band sang "Come on Eileen"?', 'multiple_choice', '["Dexys Midnight Runners", "Madness", "The Specials", "UB40"]', 'Dexys Midnight Runners', 'Popmusikk', 'hard'),
+('Hvem sang "Respect"?', 'multiple_choice', '["Aretha Franklin", "Diana Ross", "Tina Turner", "Whitney Houston"]', 'Aretha Franklin', 'Popmusikk', 'medium'),
+('Hvilket år kom "Smells Like Teen Spirit"?', 'number', NULL, '1991', 'Popmusikk', 'medium'),
+
+-- Additional Mixed Questions
+('Hva heter NRKs humorserie med Bård og Harald?', 'multiple_choice', '["Ylvis", "Brødrene Dal", "Kollektivet", "Torsdag kveld"]', 'Ylvis', 'NRK', 'medium'),
+('Hvor mange tenner har en voksen person?', 'number', NULL, '32', 'Vitenskap', 'easy'),
+('Hva er hovedstaden i Vietnam?', 'multiple_choice', '["Hanoi", "Ho Chi Minh City", "Da Nang", "Hue"]', 'Hanoi', 'Verden', 'medium'),
+('Hvilken dinosaur var størst?', 'multiple_choice', '["Argentinosaurus", "Brachiosaurus", "Diplodocus", "Apatosaurus"]', 'Argentinosaurus', 'Dinosaurer', 'hard'),
+('Hvem sang "Everybody Wants to Rule the World"?', 'multiple_choice', '["Tears for Fears", "Duran Duran", "Simple Minds", "INXS"]', 'Tears for Fears', 'Popmusikk', 'medium'),
+('Hva er den kjemiske formelen for ozon?', 'multiple_choice', '["O3", "O2", "H2O2", "CO2"]', 'O3', 'Vitenskap', 'medium'),
+('Hvor mange land grenser til Frankrike?', 'number', NULL, '8', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å renovere hus?', 'multiple_choice', '["Tid for hjem", "Drømmehytta", "Hus til salgs", "Boligdrømmer"]', 'Tid for hjem', 'NRK', 'medium'),
+('Hva spiste Parasaurolophus?', 'multiple_choice', '["Planter", "Kjøtt", "Fisk", "Insekter"]', 'Planter', 'Dinosaurer', 'easy'),
+('Hvem sang "West End Girls"?', 'multiple_choice', '["Pet Shop Boys", "Duran Duran", "Depeche Mode", "New Order"]', 'Pet Shop Boys', 'Popmusikk', 'medium'),
+
+-- Final batch of questions
+('Hva er hovedstaden i Colombia?', 'multiple_choice', '["Bogotá", "Medellín", "Cali", "Cartagena"]', 'Bogotá', 'Verden', 'medium'),
+('Hvor mange hjerter har en regnorm?', 'number', NULL, '5', 'Vitenskap', 'hard'),
+('Hvilket år døde dinosaurene ut?', 'number', NULL, '66000000', 'Dinosaurer', 'medium'),
+('Hvem sang "Blue Monday"?', 'multiple_choice', '["New Order", "Depeche Mode", "The Cure", "Joy Division"]', 'New Order', 'Popmusikk', 'medium'),
+('Hva heter NRKs talkshow på lørdager?', 'multiple_choice', '["Lindmo", "Skavlan", "Senkveld", "God kveld Norge"]', 'Lindmo', 'NRK', 'easy'),
+('Hvilken planet har flest ringer?', 'multiple_choice', '["Saturn", "Jupiter", "Uranus", "Neptun"]', 'Saturn', 'Vitenskap', 'easy'),
+('Hva er hovedstaden i Ecuador?', 'multiple_choice', '["Quito", "Guayaquil", "Cuenca", "Ambato"]', 'Quito', 'Verden', 'hard'),
+('Hvor mange bein hadde en Stegosaurus?', 'number', NULL, '4', 'Dinosaurer', 'easy'),
+('Hvem sang "Relax"?', 'multiple_choice', '["Frankie Goes to Hollywood", "Duran Duran", "Culture Club", "Wham!"]', 'Frankie Goes to Hollywood', 'Popmusikk', 'medium'),
+('Hva er den kjemiske formelen for kalsiumkarbonat?', 'multiple_choice', '["CaCO3", "CaO", "Ca(OH)2", "CaCl2"]', 'CaCO3', 'Vitenskap', 'hard'),
+
+-- More comprehensive questions
+('Hvor mange land er det i Asia?', 'number', NULL, '48', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å lage mat?', 'multiple_choice', '["Kokkekamp", "Masterchef", "4-stjerners middag", "Kokkelørdag"]', 'Kokkekamp', 'NRK', 'medium'),
+('Hva var den minste dinosauren?', 'multiple_choice', '["Microraptor", "Compsognathus", "Mussaurus", "Fruitadens"]', 'Microraptor', 'Dinosaurer', 'hard'),
+('Hvem sang "Tik Tok"?', 'multiple_choice', '["Kesha", "Katy Perry", "Lady Gaga", "Britney Spears"]', 'Kesha', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for natrium klorid?', 'multiple_choice', '["NaCl", "KCl", "CaCl2", "MgCl2"]', 'NaCl', 'Vitenskap', 'easy'),
+('Hvor mange øyer har Norge?', 'number', NULL, '50000', 'Verden', 'hard'),
+('Hvilket NRK-program handler om norsk historie?', 'multiple_choice', '["Historien om Norge", "Norge i dag", "Norgeshistorien", "Vår historie"]', 'Historien om Norge', 'NRK', 'medium'),
+('Hvor mange år levde dinosaurene på jorden?', 'number', NULL, '165000000', 'Dinosaurer', 'hard'),
+('Hvem sang "Bad Romance"?', 'multiple_choice', '["Lady Gaga", "Katy Perry", "Rihanna", "Beyoncé"]', 'Lady Gaga', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for glukose?', 'multiple_choice', '["C6H12O6", "C12H22O11", "C2H6O", "C6H6"]', 'C6H12O6', 'Vitenskap', 'medium'),
+
+-- Final questions to reach 200
+('Hvor mange land grenser til Brasil?', 'number', NULL, '10', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å reise?', 'multiple_choice', '["Reiseradioen", "Norge rundt", "Ut i naturen", "Norgesglasset"]', 'Reiseradioen', 'NRK', 'medium'),
+('Hva var den farligste dinosauren?', 'multiple_choice', '["Utahraptor", "T-Rex", "Spinosaurus", "Allosaurus"]', 'Utahraptor', 'Dinosaurer', 'hard'),
+('Hvem sang "Umbrella"?', 'multiple_choice', '["Rihanna", "Beyoncé", "Alicia Keys", "Christina Aguilera"]', 'Rihanna', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for etanol?', 'multiple_choice', '["C2H5OH", "CH3OH", "C3H7OH", "C4H9OH"]', 'C2H5OH', 'Vitenskap', 'medium'),
+('Hvor mange land er det i Nord-Amerika?', 'number', NULL, '23', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å synge?', 'multiple_choice', '["The Voice", "Idol", "Stjernekamp", "Melodi Grand Prix"]', 'The Voice', 'NRK', 'easy'),
+('Hvor mange tenner hadde en Triceratops?', 'number', NULL, '800', 'Dinosaurer', 'hard'),
+('Hvem sang "Single Ladies"?', 'multiple_choice', '["Beyoncé", "Rihanna", "Alicia Keys", "Christina Aguilera"]', 'Beyoncé', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for koffein?', 'multiple_choice', '["C8H10N4O2", "C6H12O6", "C2H6O", "CH4"]', 'C8H10N4O2', 'Vitenskap', 'hard'),
+
+-- Additional questions to complete 200
+('Hva er hovedstaden i Uruguay?', 'multiple_choice', '["Montevideo", "Punta del Este", "Salto", "Rivera"]', 'Montevideo', 'Verden', 'hard'),
+('Hvilket NRK-program handler om dyr?', 'multiple_choice', '["Dyrebarna", "Vill natur", "Naturens år", "Dyreliv"]', 'Dyrebarna', 'NRK', 'medium'),
+('Hva var den smarteste dinosauren?', 'multiple_choice', '["Troodon", "Velociraptor", "Deinonychus", "Utahraptor"]', 'Troodon', 'Dinosaurer', 'medium'),
+('Hvem sang "Poker Face"?', 'multiple_choice', '["Lady Gaga", "Katy Perry", "Rihanna", "Kesha"]', 'Lady Gaga', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for aspirin?', 'multiple_choice', '["C9H8O4", "C8H9NO2", "C6H8O6", "C7H6O3"]', 'C9H8O4', 'Vitenskap', 'hard'),
+('Hvor mange land grenser til India?', 'number', NULL, '7', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å danse?', 'multiple_choice', '["Skal vi danse", "Dansefeber", "Strictly", "Dancing"]', 'Skal vi danse', 'NRK', 'easy'),
+('Hvor mange klør hadde en Velociraptor på hver fot?', 'number', NULL, '1', 'Dinosaurer', 'hard'),
+('Hvem sang "Halo"?', 'multiple_choice', '["Beyoncé", "Rihanna", "Alicia Keys", "Whitney Houston"]', 'Beyoncé', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for baking soda?', 'multiple_choice', '["NaHCO3", "Na2CO3", "CaCO3", "KHCO3"]', 'NaHCO3', 'Vitenskap', 'medium'),
+
+-- Final questions
+('Hva er hovedstaden i Paraguay?', 'multiple_choice', '["Asunción", "Ciudad del Este", "San Lorenzo", "Luque"]', 'Asunción', 'Verden', 'hard'),
+('Hvilket NRK-program handler om å lage ting?', 'multiple_choice', '["Hjemme best", "Tid for hjem", "Kreativ kveld", "Håndverk"]', 'Hjemme best', 'NRK', 'medium'),
+('Hva var den raskeste dinosauren?', 'multiple_choice', '["Ornithomimus", "Velociraptor", "Compsognathus", "Dromaeosaurus"]', 'Ornithomimus', 'Dinosaurer', 'hard'),
+('Hvem sang "Roar"?', 'multiple_choice', '["Katy Perry", "Taylor Swift", "Ariana Grande", "Selena Gomez"]', 'Katy Perry', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for kalk?', 'multiple_choice', '["CaO", "CaCO3", "Ca(OH)2", "CaCl2"]', 'CaO', 'Vitenskap', 'medium'),
+('Hvor mange land er det i Oseania?', 'number', NULL, '14', 'Verden', 'hard'),
+('Hvilket NRK-program handler om å bygge?', 'multiple_choice', '["Tid for hjem", "Drømmehytta", "Byggmester", "Hus til salgs"]', 'Tid for hjem', 'NRK', 'medium'),
+('Hvor mange meter lang kunne en Diplodocus bli?', 'number', NULL, '27', 'Dinosaurer', 'medium'),
+('Hvem sang "Shake It Off"?', 'multiple_choice', '["Taylor Swift", "Ariana Grande", "Katy Perry", "Selena Gomez"]', 'Taylor Swift', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for rust?', 'multiple_choice', '["Fe2O3", "FeO", "Fe3O4", "FeCl3"]', 'Fe2O3', 'Vitenskap', 'hard'),
+
+-- More comprehensive coverage
+('Hva er hovedstaden i Bolivia?', 'multiple_choice', '["La Paz", "Sucre", "Santa Cruz", "Cochabamba"]', 'La Paz', 'Verden', 'hard'),
+('Hvilket NRK-program handler om å handle mat?', 'multiple_choice', '["Matkonkurransen", "Kokkekamp", "Handleliste", "Matprogrammet"]', 'Kokkekamp', 'NRK', 'medium'),
+('Hva var den tyngste dinosauren?', 'multiple_choice', '["Argentinosaurus", "Brachiosaurus", "Diplodocus", "Apatosaurus"]', 'Argentinosaurus', 'Dinosaurer', 'hard'),
+('Hvem sang "Uptown Funk"?', 'multiple_choice', '["Bruno Mars", "Justin Timberlake", "Pharrell Williams", "Robin Thicke"]', 'Bruno Mars', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for eddiksyre?', 'multiple_choice', '["CH3COOH", "HCOOH", "C2H4O2", "C3H6O3"]', 'CH3COOH', 'Vitenskap', 'medium'),
+('Hvor mange land grenser til Polen?', 'number', NULL, '7', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å synge i kor?', 'multiple_choice', '["Allsang på Grensen", "Korslaget", "Sangkrig", "Allsang"]', 'Allsang på Grensen', 'NRK', 'medium'),
+('Hvor mange horn hadde en Styracosaurus?', 'number', NULL, '6', 'Dinosaurer', 'hard'),
+('Hvem sang "Happy"?', 'multiple_choice', '["Pharrell Williams", "Bruno Mars", "Justin Timberlake", "Robin Thicke"]', 'Pharrell Williams', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for kalsium hydroksid?', 'multiple_choice', '["Ca(OH)2", "CaO", "CaCO3", "CaCl2"]', 'Ca(OH)2', 'Vitenskap', 'hard'),
+
+-- Final questions to reach exactly 200
+('Hva er hovedstaden i Venezuela?', 'multiple_choice', '["Caracas", "Maracaibo", "Valencia", "Barquisimeto"]', 'Caracas', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å reise med tog?', 'multiple_choice', '["Togreisen", "Minutt for minutt", "Slow TV", "Bergensbanen"]', 'Minutt for minutt', 'NRK', 'medium'),
+('Hva var den lengste dinosauren?', 'multiple_choice', '["Diplodocus", "Argentinosaurus", "Brachiosaurus", "Apatosaurus"]', 'Diplodocus', 'Dinosaurer', 'medium'),
+('Hvem sang "Blinding Lights"?', 'multiple_choice', '["The Weeknd", "Bruno Mars", "Ed Sheeran", "Justin Bieber"]', 'The Weeknd', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for magnesium oksid?', 'multiple_choice', '["MgO", "Mg(OH)2", "MgCO3", "MgCl2"]', 'MgO', 'Vitenskap', 'medium'),
+('Hvor mange land grenser til Tyrkia?', 'number', NULL, '8', 'Verden', 'medium'),
+('Hvilket NRK-program handler om å lese bøker?', 'multiple_choice', '["Bokprogrammet", "Litteraturhuset", "Bokklub", "Lesestund"]', 'Bokprogrammet', 'NRK', 'medium'),
+('Hvor mange klør hadde en Therizinosaurus?', 'number', NULL, '3', 'Dinosaurer', 'hard'),
+('Hvem sang "Shape of You"?', 'multiple_choice', '["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"]', 'Ed Sheeran', 'Popmusikk', 'easy'),
+('Hva er den kjemiske formelen for hydrogen sulfid?', 'multiple_choice', '["H2S", "SO2", "H2SO4", "HS"]', 'H2S', 'Vitenskap', 'medium'),
+
+-- Additional world knowledge
+('Hva er hovedstaden i Kazakhstan?', 'multiple_choice', '["Nur-Sultan", "Almaty", "Shymkent", "Aktobe"]', 'Nur-Sultan', 'Verden', 'hard'),
+('Hvor mange land grenser til Afghanistan?', 'number', NULL, '6', 'Verden', 'hard'),
+('Hva er hovedstaden i Myanmar?', 'multiple_choice', '["Naypyidaw", "Yangon", "Mandalay", "Bagan"]', 'Naypyidaw', 'Verden', 'hard'),
+('Hvilket land har flest aktive vulkaner?', 'multiple_choice', '["Indonesia", "Japan", "USA", "Russland"]', 'Indonesia', 'Verden', 'medium'),
+('Hva er hovedstaden i Bangladesh?', 'multiple_choice', '["Dhaka", "Chittagong", "Sylhet", "Khulna"]', 'Dhaka', 'Verden', 'medium'),
+('Hvor mange land grenser til Iran?', 'number', NULL, '7', 'Verden', 'medium'),
+('Hva er hovedstaden i Sri Lanka?', 'multiple_choice', '["Colombo", "Kandy", "Galle", "Jaffna"]', 'Colombo', 'Verden', 'medium'),
+('Hvilket land har flest naturlige søer?', 'multiple_choice', '["Canada", "Finland", "Norge", "Sverige"]', 'Canada', 'Verden', 'hard'),
+('Hva er hovedstaden i Nepal?', 'multiple_choice', '["Kathmandu", "Pokhara", "Lalitpur", "Bharatpur"]', 'Kathmandu', 'Verden', 'medium'),
+('Hvor mange land grenser til Pakistan?', 'number', NULL, '4', 'Verden', 'medium'),
+
+-- More science questions
+('Hvor mange elementer er det i det periodiske systemet?', 'number', NULL, '118', 'Vitenskap', 'medium'),
+('Hva er den kjemiske formelen for hydrogen klorid?', 'multiple_choice', '["HCl", "H2Cl", "HClO", "ClH"]', 'HCl', 'Vitenskap', 'medium'),
+('Hvor mange mager har en ku?', 'number', NULL, '4', 'Vitenskap', 'medium'),
+('Hvilken planet har den korteste omløpstiden?', 'multiple_choice', '["Merkur", "Venus", "Mars", "Jupiter"]', 'Merkur', 'Vitenskap', 'medium'),
+('Hva er den kjemiske formelen for svovelsyre?', 'multiple_choice', '["H2SO4", "H2S", "SO2", "H2SO3"]', 'H2SO4', 'Vitenskap', 'hard'),
+('Hvor mange øyne har en edderkoppkrabbe?', 'number', NULL, '10', 'Vitenskap', 'hard'),
+('Hvilken planet har den lengste dagen?', 'multiple_choice', '["Venus", "Merkur", "Mars", "Jupiter"]', 'Venus', 'Vitenskap', 'hard'),
+('Hva er den kjemiske formelen for salpetersyre?', 'multiple_choice', '["HNO3", "HNO2", "N2O5", "NH3"]', 'HNO3', 'Vitenskap', 'hard'),
+('Hvor mange lunger har en slange?', 'number', NULL, '1', 'Vitenskap', 'hard'),
+('Hvilken planet har den tykkeste atmosfæren?', 'multiple_choice', '["Venus", "Jupiter", "Saturn", "Neptun"]', 'Venus', 'Vitenskap', 'medium'),
+
+-- More pop music questions
+('Hvem sang "Rolling in the Deep"?', 'multiple_choice', '["Adele", "Amy Winehouse", "Duffy", "Joss Stone"]', 'Adele', 'Popmusikk', 'easy'),
+('Hvilket år kom "Bohemian Rhapsody"?', 'number', NULL, '1975', 'Popmusikk', 'medium'),
+('Hvem sang "Someone Like You"?', 'multiple_choice', '["Adele", "Amy Winehouse", "Duffy", "Joss Stone"]', 'Adele', 'Popmusikk', 'easy'),
+('Hvilket band sang "We Will Rock You"?', 'multiple_choice', '["Queen", "The Beatles", "Led Zeppelin", "The Rolling Stones"]', 'Queen', 'Popmusikk', 'easy'),
+('Hvem sang "Rehab"?', 'multiple_choice', '["Amy Winehouse", "Adele", "Duffy", "Joss Stone"]', 'Amy Winehouse', 'Popmusikk', 'medium'),
+('Hvilket år kom "Stairway to Heaven"?', 'number', NULL, '1971', 'Popmusikk', 'medium'),
+('Hvem sang "Set Fire to the Rain"?', 'multiple_choice', '["Adele", "Amy Winehouse", "Duffy", "Joss Stone"]', 'Adele', 'Popmusikk', 'easy'),
+('Hvilket band sang "Hotel California"?', 'multiple_choice', '["Eagles", "Fleetwood Mac", "The Doors", "Lynyrd Skynyrd"]', 'Eagles', 'Popmusikk', 'easy'),
+('Hvem sang "Valerie"?', 'multiple_choice', '["Amy Winehouse", "Adele", "Duffy", "Joss Stone"]', 'Amy Winehouse', 'Popmusikk', 'medium'),
+('Hvilket år kom "Imagine" av John Lennon?', 'number', NULL, '1971', 'Popmusikk', 'medium'),
+
+-- Final batch to complete exactly 200 questions
+('Hvem sang "Hello"?', 'multiple_choice', '["Adele", "Amy Winehouse", "Duffy", "Joss Stone"]', 'Adele', 'Popmusikk', 'easy'),
+('Hvilket band sang "Another Brick in the Wall"?', 'multiple_choice', '["Pink Floyd", "Led Zeppelin", "The Who", "Deep Purple"]', 'Pink Floyd', 'Popmusikk', 'medium'),
+('Hvem sang "Back to Black"?', 'multiple_choice', '["Amy Winehouse", "Adele", "Duffy", "Joss Stone"]', 'Amy Winehouse', 'Popmusikk', 'medium'),
+('Hvilket år kom "Yesterday" av The Beatles?', 'number', NULL, '1965', 'Popmusikk', 'medium'),
+('Hvem sang "Mercy"?', 'multiple_choice', '["Duffy", "Adele", "Amy Winehouse", "Joss Stone"]', 'Duffy', 'Popmusikk', 'medium'),
+('Hvilket band sang "Smoke on the Water"?', 'multiple_choice', '["Deep Purple", "Led Zeppelin", "Black Sabbath", "Rainbow"]', 'Deep Purple', 'Popmusikk', 'medium'),
+('Hvem sang "Crazy"?', 'multiple_choice', '["Gnarls Barkley", "OutKast", "Kanye West", "50 Cent"]', 'Gnarls Barkley', 'Popmusikk', 'medium'),
+('Hvilket år kom "Like a Rolling Stone" av Bob Dylan?', 'number', NULL, '1965', 'Popmusikk', 'hard'),
+('Hvem sang "Stronger"?', 'multiple_choice', '["Kelly Clarkson", "Pink", "Christina Aguilera", "Britney Spears"]', 'Kelly Clarkson', 'Popmusikk', 'medium'),
+('Hvilket band sang "Sweet Caroline"?', 'multiple_choice', '["Neil Diamond", "Elton John", "Billy Joel", "Paul Simon"]', 'Neil Diamond', 'Popmusikk', 'medium'),
+
+-- Final 10 questions
+('Hvem sang "Since U Been Gone"?', 'multiple_choice', '["Kelly Clarkson", "Pink", "Christina Aguilera", "Avril Lavigne"]', 'Kelly Clarkson', 'Popmusikk', 'medium'),
+('Hvilket år kom "Smells Like Teen Spirit"?', 'number', NULL, '1991', 'Popmusikk', 'medium'),
+('Hvem sang "Complicated"?', 'multiple_choice', '["Avril Lavigne", "Pink", "Kelly Clarkson", "Michelle Branch"]', 'Avril Lavigne', 'Popmusikk', 'easy'),
+('Hvilket band sang "Mr. Brightside"?', 'multiple_choice', '["The Killers", "Franz Ferdinand", "Arctic Monkeys", "The Strokes"]', 'The Killers', 'Popmusikk', 'medium'),
+('Hvem sang "Hips Dont Lie"?', 'multiple_choice', '["Shakira", "Jennifer Lopez", "Christina Aguilera", "Beyoncé"]', 'Shakira', 'Popmusikk', 'easy'),
+('Hvilket år kom "Smells Like Teen Spirit"?', 'number', NULL, '1991', 'Popmusikk', 'medium'),
+('Hvem sang "Crazy in Love"?', 'multiple_choice', '["Beyoncé", "Rihanna", "Alicia Keys", "Christina Aguilera"]', 'Beyoncé', 'Popmusikk', 'easy'),
+('Hvilket band sang "Seven Nation Army"?', 'multiple_choice', '["The White Stripes", "The Black Keys", "Arctic Monkeys", "The Strokes"]', 'The White Stripes', 'Popmusikk', 'medium'),
+('Hvem sang "Irreplaceable"?', 'multiple_choice', '["Beyoncé", "Rihanna", "Alicia Keys", "Christina Aguilera"]', 'Beyoncé', 'Popmusikk', 'easy'),
+('Hvilket år kom "Smells Like Teen Spirit"?', 'number', NULL, '1991', 'Popmusikk', 'medium');
