@@ -32,13 +32,12 @@
   <div class="w-full max-w-2xl">
     <!-- Header outside the card -->
     <div class="text-center mb-8">
-      <Logo className="h-16 w-16 text-brand-dark mx-auto mb-4" />
-      <div class="relative overflow-hidden rounded-2xl p-6 mb-4">
-        <!-- Animated circle background -->
-        <div class="absolute inset-0" style="background-color: var(--brand-dark);">
+      <div class="relative overflow-hidden rounded-xl p-4 mb-4" style="background-color: var(--brand-dark);">
+        <!-- Animated yellow circles background -->
+        <div class="absolute inset-0">
           {#each Array(15) as _, i}
             <div 
-              class="absolute w-2 h-2 bg-white rounded-full animate-pulse"
+              class="absolute w-2 h-2 bg-yellow-300 rounded-full animate-pulse"
               style="
                 left: {Math.random() * 100}%;
                 top: {Math.random() * 100}%;
@@ -59,7 +58,7 @@
           {/each}
           {#each Array(6) as _, i}
             <div 
-              class="absolute w-3 h-3 bg-yellow-300 rounded-full star-swirl"
+              class="absolute w-3 h-3 bg-yellow-300 rounded-full star-swirl opacity-70"
               style="
                 left: {Math.random() * 90}%;
                 top: {Math.random() * 90}%;
@@ -69,20 +68,20 @@
           {/each}
         </div>
         
-        <!-- Header content -->
-        <div class="relative z-10">
-          <h1 class="text-2xl font-bold text-white mb-2 text-shadow-lg animate-bounce-subtle">
-            🎯 POP-quiz
-          </h1>
-          <p class="text-lg text-yellow-200 mb-1 font-semibold animate-fade-in">
-            Presentert av NRKs beste team
-          </p>
-          <p class="text-xl font-bold text-yellow-300 mb-1 animate-glow">
-            ✨ Team POP ✨
-          </p>
-          <p class="text-sm text-blue-200 animate-fade-in-delayed">
-            Den ultimate quiz-opplevelsen! 🚀
-          </p>
+        <!-- Header content with logo left and text right -->
+        <div class="relative z-10 flex items-center gap-4">
+          <Logo className="h-12 w-12 text-white flex-shrink-0" />
+          <div class="text-left">
+            <h1 class="text-xl font-bold text-white mb-1 animate-bounce-subtle">
+              POP-quiz
+            </h1>
+            <p class="text-sm text-white mb-1 font-medium animate-fade-in">
+              Presentert av NRKs beste team
+            </p>
+            <p class="text-lg font-bold text-yellow-300 animate-glow">
+              Team POP
+            </p>
+          </div>
         </div>
       </div>
     </div>
