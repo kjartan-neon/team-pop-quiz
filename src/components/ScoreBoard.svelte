@@ -7,16 +7,7 @@
   export let lastCorrectAnswer: string | null = null;
 </script>
 
-<div class="bg-white rounded-xl shadow-lg p-4 mb-4">
-  {#if lastCorrectAnswer}
-    <div class="mb-3 p-3 rounded-lg bg-blue-50 border border-blue-200">
-      <p class="text-sm text-blue-700">
-        <span class="font-medium">Forrige spørsmål:</span> {lastCorrectAnswer}
-      </p>
-    </div>
-  {/if}
-  
-  
+<div class="bg-white rounded-xl shadow-lg p-4 mb-4">  
   <div class="grid grid-cols-2 gap-4">
     <div class="p-4 rounded-xl border-2 transition-all {currentTurn === 1
       ? 'border-brand-dark bg-brand-light shadow-md'
@@ -66,4 +57,11 @@
       <p class="text-2xl font-bold text-accent-dark">{session.team2_score} poeng</p>
     </div>
   </div>
+    {#if lastCorrectAnswer}
+    <div class="mb-3 p-3 rounded-lg bg-blue-50 border border-blue-200">
+      <p class="text-sm text-blue-700">
+        <span class="font-medium">Forrige spørsmål:</span> {lastCorrectAnswer}
+      </p>
+    </div>
+  {/if}
 </div>
