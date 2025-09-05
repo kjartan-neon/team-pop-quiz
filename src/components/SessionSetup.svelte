@@ -118,7 +118,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-2">
             Sesjonsord (skriv ned for å fortsette senere)
           </label>
-          <div class="flex gap-2">
+          <div class="flex gap-2 mobile-input-group">
             <input
               type="text"
               bind:value={wordCombination}
@@ -128,7 +128,7 @@
             />
             <button
               on:click={generateNew}
-              class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
+              class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors flex items-center"
             >
               Nytt
             </button>
@@ -140,7 +140,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">
               Navn på Lag 1 (Mørkeblå)
             </label>
-            <div class="flex gap-2">
+            <div class="flex gap-2 mobile-input-group">
               <input
                 type="text"
                 bind:value={team1Name}
@@ -150,7 +150,7 @@
               />
               <button
                 on:click={generateNewTeam1Name}
-                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
+                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors flex items-center"
               >
                 Nytt
               </button>
@@ -160,7 +160,7 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">
               Navn på Lag 2 (Korall)
             </label>
-            <div class="flex gap-2">
+            <div class="flex gap-2 mobile-input-group">
               <input
                 type="text"
                 bind:value={team2Name}
@@ -170,7 +170,7 @@
               />
               <button
                 on:click={generateNewTeam2Name}
-                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
+                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors flex items-center"
               >
                 Nytt
               </button>
