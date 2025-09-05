@@ -276,7 +276,8 @@ function createGameStore() {
           gamePhase: nextGamePhase,
           team2HasDoubleOption: currentTeam === 1 && !isCorrect,
           showCorrectAnswer: shouldShowCorrectAnswer ? currentState!.currentQuestion.correct_answer : null,
-          lastCorrectAnswer: correctAnswerToStore
+          lastCorrectAnswer: correctAnswerToStore,
+          previousQuestionId: questionIsComplete ? currentState!.currentQuestion.id : state.previousQuestionId
         }));
 
         // Trigger confetti animation
@@ -299,6 +300,7 @@ function createGameStore() {
               team2HasDoubleOption: false,
               showCorrectAnswer: null,
               isQuestionFading: false
+              // Keep previousQuestionId and lastCorrectAnswer for flagging
             }));
           }, 3500);
         } else {
@@ -333,9 +335,8 @@ function createGameStore() {
         // Load a new question immediately
         await this.loadNextQuestion();
         
-        update(state => ({ 
-          ...state, 
-          team2HasDoubleOption: false,
+          previousQuestionId: null,
+          lastCorrectAnswer: null
           showCorrectAnswer: null,
           isQuestionFading: false,
           lastAnswer: null

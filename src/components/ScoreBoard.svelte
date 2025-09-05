@@ -88,7 +88,7 @@
       <p class="text-sm text-blue-700">
         <span class="font-medium">Svar på forrige spørsmål:</span> {lastCorrectAnswer}
       </p>
-      {#if lastAnswer && !lastAnswer.correct && onFlagPreviousQuestion}
+      {#if onFlagPreviousQuestion}
         <button
           on:click={onFlagPreviousQuestion}
           class="flex items-center gap-1 text-red-600 hover:text-red-800 text-sm font-medium transition-colors"

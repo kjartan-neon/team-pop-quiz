@@ -61,7 +61,7 @@
         currentTurn={currentTeam}
         lastCorrectAnswer={gameState.lastCorrectAnswer}
         lastAnswer={gameState.lastAnswer}
-        onFlagPreviousQuestion={gameState.lastAnswer && !gameState.lastAnswer.correct ? handleFlagPreviousQuestion : undefined}
+        onFlagPreviousQuestion={gameState.previousQuestionId ? handleFlagPreviousQuestion : undefined}
       />
       
       <QuestionCard
