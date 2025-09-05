@@ -366,7 +366,8 @@ function createGameStore() {
         showCorrectAnswer: null,
         loadError: null,
         isQuestionFading: false,
-        lastCorrectAnswer: null
+        lastCorrectAnswer: null,
+        previousQuestionId: null
       });
     }
   };
