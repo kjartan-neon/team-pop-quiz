@@ -1,12 +1,13 @@
 <script lang="ts">
   import { Play, Search } from 'lucide-svelte';
   import { generateWordCombination } from '../lib/wordCombinations';
+  import { generateTeamName } from '../lib/teamNames';
   import { gameStore } from '../lib/gameStore';
 
   let mode: 'create' | 'load' = 'create';
   let wordCombination = generateWordCombination();
-  let team1Name = 'Lag 1';
-  let team2Name = 'Lag 2';
+  let team1Name = generateTeamName();
+  let team2Name = generateTeamName();
   let loadWordCombination = '';
   let isLoading = false;
   let loadError = null;
@@ -44,6 +45,14 @@
 
   function generateNew() {
     wordCombination = generateWordCombination();
+  }
+
+  function generateNewTeam1Name() {
+    team1Name = generateTeamName();
+  }
+
+  function generateNewTeam2Name() {
+    team2Name = generateTeamName();
   }
 </script>
 
@@ -131,25 +140,41 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">
               Navn på Lag 1 (Mørkeblå)
             </label>
-            <input
-              type="text"
-              bind:value={team1Name}
-              maxlength="50"
-              class="w-full px-4 py-3 border-2 border-brand-light rounded-s focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
-              placeholder="Navn på lag 1"
-            />
+            <div class="flex gap-2">
+              <input
+                type="text"
+                bind:value={team1Name}
+                maxlength="50"
+                class="flex-1 px-4 py-3 border-2 border-brand-light rounded-s focus:ring-2 focus:ring-brand-dark focus:border-transparent text-lg"
+                placeholder="Navn på lag 1"
+              />
+              <button
+                on:click={generateNewTeam1Name}
+                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
+              >
+                Nytt
+              </button>
+            </div>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
               Navn på Lag 2 (Korall)
             </label>
-            <input
-              type="text"
-              bind:value={team2Name}
-              maxlength="50"
-              class="w-full px-4 py-3 border-2 border-accent-light rounded-s focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
-              placeholder="Navn på lag 2"
-            />
+            <div class="flex gap-2">
+              <input
+                type="text"
+                bind:value={team2Name}
+                maxlength="50"
+                class="flex-1 px-4 py-3 border-2 border-accent-light rounded-s focus:ring-2 focus:ring-accent-dark focus:border-transparent text-lg"
+                placeholder="Navn på lag 2"
+              />
+              <button
+                on:click={generateNewTeam2Name}
+                class="px-4 py-3 bg-gray-100 border border-gray-300 rounded-s hover:bg-gray-200 transition-colors"
+              >
+                Nytt
+              </button>
+            </div>
           </div>
           
         </div>
