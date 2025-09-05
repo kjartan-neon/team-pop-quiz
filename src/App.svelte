@@ -41,6 +41,10 @@
   function handleFlagQuestion() {
     gameStore.flagQuestion();
   }
+
+  function handleFlagPreviousQuestion() {
+    gameStore.flagPreviousQuestion();
+  }
 </script>
 
 {#if gameState.gamePhase === 'setup'}
@@ -57,6 +61,7 @@
         currentTurn={currentTeam}
         lastCorrectAnswer={gameState.lastCorrectAnswer}
         lastAnswer={gameState.lastAnswer}
+        onFlagPreviousQuestion={gameState.lastAnswer && !gameState.lastAnswer.correct ? handleFlagPreviousQuestion : undefined}
       />
       
       <QuestionCard

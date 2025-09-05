@@ -46,4 +46,5 @@ export interface GameState {
   loadError: string | null;
   isQuestionFading: boolean;
   lastCorrectAnswer: string | null;
+  previousQuestionId: string | null;
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Trophy, Users } from 'lucide-svelte';
-  import { CheckCircle, XCircle } from 'lucide-svelte';
+  import { CheckCircle, XCircle, Flag } from 'lucide-svelte';
   import type { Session } from '../types/quiz';
 
   export let session: Session;
@@ -11,14 +11,15 @@
     correct: boolean;
     points: number;
   } | null = null;
+  export let onFlagPreviousQuestion: (() => void) | undefined = undefined;
 </script>
 
 <div class="bg-white rounded-xl shadow-lg p-4 mb-4">  
   {#if lastAnswer}
-    <div class="mb-3 p-3 flex items-center justify-center rounded-lg {lastAnswer.correct 
+    <div class="mb-3 p-3 flex items-center justify-between rounded-lg {lastAnswer.correct 
       ? 'bg-green-100 border border-green-300' 
       : 'bg-red-100 border border-red-300'}">
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 flex-1 justify-center">
         {#if lastAnswer.correct}
           <CheckCircle class="h-5 w-5 text-green-600" />
         {:else}
@@ -29,6 +30,16 @@
           {lastAnswer.correct ? 'Riktig!' : 'Feil!'} ({lastAnswer.points > 0 ? '+' : ''}{lastAnswer.points} poeng)
         </p>
       </div>
+      {#if !lastAnswer.correct && onFlagPreviousQuestion}
+        <button
+          on:click={onFlagPreviousQuestion}
+          class="flex items-center gap-1 text-red-600 hover:text-red-800 text-sm font-medium transition-colors"
+          title="Rapporter feil i forrige spørsmål"
+        >
+          <Flag class="h-4 w-4" />
+          Rapporter feil
+        </button>
+      {/if}
     </div>
   {/if}
 
