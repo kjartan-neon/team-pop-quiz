@@ -253,10 +253,10 @@ function createGameStore() {
         // Check if both teams answered wrong (team 2 just answered wrong and has double option)
         const shouldShowCorrectAnswer = currentTeam === 2 && !isCorrect && currentState!.team2HasDoubleOption;
 
-        // Store the correct answer for display in scoreboard
-        const correctAnswerToStore = (currentTeam === 2 && isCorrect) || (currentTeam === 1 && !isCorrect && currentState!.team2HasDoubleOption)
-          ? currentState!.currentQuestion.correct_answer 
-          : null;
+        // Store the correct answer for display in scoreboard when question is complete
+        // Question is complete when: someone got it right OR both teams got it wrong
+        const questionIsComplete = isCorrect || (currentTeam === 2 && !isCorrect && currentState!.team2HasDoubleOption);
+        const correctAnswerToStore = questionIsComplete ? currentState!.currentQuestion.correct_answer : null;
         
         // Determine next game phase
         let nextGamePhase;
