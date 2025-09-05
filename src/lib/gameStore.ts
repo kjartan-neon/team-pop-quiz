@@ -335,8 +335,10 @@ function createGameStore() {
         // Load a new question immediately
         await this.loadNextQuestion();
         
+        update(state => ({
+          ...state,
           previousQuestionId: null,
-          lastCorrectAnswer: null
+          lastCorrectAnswer: null,
           showCorrectAnswer: null,
           isQuestionFading: false,
           lastAnswer: null
